@@ -1,8 +1,7 @@
 ---
 title: Zijia Lu 鲁子嘉
 role: PhD in Video Action Understanding
-bio: My research interests is understanding the actions in procedural videos to
-  assist human daily task.
+bio: My research focus is Video Understanding
 interests:
   - Artificial Intelligence
   - Computational Linguistics
