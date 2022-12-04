@@ -24,7 +24,7 @@ social:
     link: uploads/resume.pdf
 organizations:
   - name: Northeastern University
-    url: https://www.stanford.edu/
+    url: https://khoury.northeastern.edu/home/eelhami/mcadsLab.htm
 education:
   courses:
     - course: PhD in Video Understanding
