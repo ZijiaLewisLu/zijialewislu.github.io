@@ -8,9 +8,6 @@ interests:
   - Computational Linguistics
   - Information Retrieval
 social:
-  - icon: envelope
-    icon_pack: fas
-    link: /#contact
   - icon: graduation-cap
     icon_pack: fas
     link: https://scholar.google.com.hk/citations?hl=en&user=xEGL7NsAAAAJ
