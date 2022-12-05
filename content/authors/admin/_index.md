@@ -1,5 +1,5 @@
 ---
-title: Zijia Lu 鲁子嘉
+title: Zijia Lu
 role: PhD in Video Action Understanding
 avatar_filename: 32959.jpeg
 bio: My research focus is Video Understanding
