@@ -42,6 +42,4 @@ highlight_name: true
 first_name: Alice
 email: lu.zij@northeastern.edu
 ---
-
-Alice Wu is a professor of artificial intelligence at the Stanford AI Lab. Her research interests include distributed robotics, mobile computing and programmable matter. She leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
-{style="text-align: justify;"}
+Zijia Lu is a PhD candidate in Khoury College, Northeastern University. His research interests includes Video Understanding, weakly supervised and unsupervised learning, Multi-Modality Learning. He currently works with Professor Ehsan Elhamifar on learning task actions and procedures with weakly supervised tutorial videos and applying the learned knowledge to assist human daily life.{style="text-align: justify;"}
