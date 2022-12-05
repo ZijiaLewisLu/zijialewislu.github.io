@@ -42,4 +42,4 @@ highlight_name: true
 first_name: Alice
 email: lu.zij@northeastern.edu
 ---
-Zijia Lu is a PhD candidate in Khoury College, Northeastern University. His research interests includes Video Understanding, weakly supervised and unsupervised learning, Multi-Modality Learning. He currently works with Professor Ehsan Elhamifar on learning task actions and procedures with weakly supervised tutorial videos and applying the learned knowledge to assist human daily life.{style="text-align: justify;"}
+Zijia Lu is a PhD candidate in Khoury College, Northeastern University. His research interests includes Video Understanding, weakly supervised and unsupervised learning, Multi-Modality Learning. He currently works with Professor Ehsan Elhamifar on learning task actions and procedures with weakly supervised tutorial videos and applying the learned knowledge to assist human daily life. {style="text-align: justify;"}
