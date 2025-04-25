@@ -4,412 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me - Zijia Lu</title>
-    <style>
-        /* Global styles */
-        :root {
-            --primary-color: #1a237e;
-            --secondary-color: #3949ab;
-            --light-color: #f5f5f5;
-            --dark-color: #212121;
-            --text-color: #333333;
-            --max-width: 1200px;
-            --border-color: #e0e0e0;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: #ffffff;
-        }
-        
-        a {
-            color: var(--secondary-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        a:hover {
-            color: var(--primary-color);
-            text-decoration: underline;
-        }
-        
-        .container {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 2rem;
-            display: flex;
-            flex-wrap: wrap;
-        }
-        
-        /* Left panel */
-        .sidebar {
-            width: 20%;
-            padding-right: 2rem;
-        }
-        
-        .profile {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        
-        .profile-image {
-            width: 180px;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 50%;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            margin-bottom: 1rem;
-        }
-        
-        .profile-name {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
-        }
-        
-        .profile-title {
-            font-size: 1rem;
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-        }
-        
-        .contact-info {
-            margin-bottom: 2rem;
-        }
-        
-        .contact-info h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.75rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .contact-item {
-            display: flex;
-            margin-bottom: 0.75rem;
-            font-size: 0.9rem;
-        }
-        
-        .contact-icon {
-            /* width: 20px; */
-            height: 20px;
-            margin-right: 10px;
-            color: var(--secondary-color);
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 1.5rem;
-        }
-        
-        .social-links a {
-            font-size: 1.1rem;
-            color: var(--secondary-color);
-        }
-        
-        /* Main content */
-        .main-content {
-            width: 80%;
-            padding-left: 2rem;
-            border-left: 1px solid var(--border-color);
-        }
-        
-        .section {
-            margin-bottom: 3rem;
-        }
-        
-        .section-title {
-            font-size: 1.75rem;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 0.75rem;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            width: 100px;
-            height: 3px;
-            background-color: var(--secondary-color);
-            bottom: 0;
-            left: 0;
-        }
-        
-        .about-content p {
-            margin-bottom: 1rem;
-            text-align: justify;
-        }
-        
-        /* Research section */
-        .research-container {
-            margin-bottom: 2rem;
-        }
-        
-        .research-item {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid var(--border-color);
-            margin-bottom: 2rem;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .research-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .research-item-top {
-            display: flex;
-            flex-direction: row;
-            position: relative; /* Added for the vertical bar */
-        }
-
-        .research-item-separator {
-            width: 1px;
-            background-color: var(--border-color);
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 60%; /* Aligns with the end of research-item-left */
-        }
-
-        .research-item-left {
-            width: 60%;
-            padding: 1rem;
-        }
-
-        .research-item-image {
-            width: 100%;
-            /* height: 200px; */
-            margin-bottom: 1rem;
-        }
-
-        .research-item-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 4px;
-        }
-
-        .publication-title {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
-            font-weight: 600;
-        }
-
-        .publication-authors {
-            font-style: italic;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-        }
-
-        .publication-venue {
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
-
-        .research-item-right {
-            width: 40%;
-            padding: 1rem;
-        }
-
-        .publication-description {
-            font-size: 0.95rem;
-            text-align: justify;
-        }
-
-        .research-item-bottom {
-            padding: 0.75rem 1rem;
-            border-top: 1px solid var(--border-color);
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        .publication-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .publication-links a {
-            padding: 5px 12px;
-            border-radius: 4px;
-            /* background-color: var(--secondary-color);
-            color: white; */
-            color: var(--secondary-color);
-            background-color: white;
-            border: 1.5px solid var(--secondary-color); /* Added border color */
-            /* border-color: white; */
-            font-size: 0.8rem;
-            transition: background-color 0.3s ease;
-            /* font-weight: bold; */
-        }
-
-        .publication-links a:hover {
-            background-color: var(--primary-color);
-            text-decoration: none;
-            color: white; /* Optional: Change text color on hover */
-        }
-
-        .publication-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            /* margin-top: 0.5rem; */
-        }
-
-        .publication-tag {
-            /* padding: 3px 10px; */
-            padding: 5px 12px;
-            border-radius: 20px;
-            /* background-color: #e0e0e0;
-            color: #555; */
-            color: #555;
-            border: 1.5px solid #e0e0e0;
-            font-size: 0.75rem;
-            font-weight: bold;
-        }
-
-        @media (max-width: 768px) {
-            .research-item-top {
-                flex-direction: column;
-            }
-            
-            .research-item-left, 
-            .research-item-right {
-                width: 100%;
-                padding: 1rem 1rem 0.5rem 1rem;
-            }
-            
-            .research-item-image {
-                height: 180px;
-            }
-        }
-        .updates-list {
-            list-style: none;
-        }
-        
-        .update-item {
-            display: flex;
-            flex-wrap: wrap;
-            margin-bottom: 0.75rem;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-        
-        .update-date {
-            font-weight: 600;
-            color: var(--secondary-color);
-            margin-right: 1rem;
-            /* min-width: 100px; */
-        }
-        
-        .update-content {
-            flex: 1;
-        }
-        
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 1.5rem;
-            font-size: 0.9rem;
-            color: #777;
-            border-top: 1px solid var(--border-color);
-            margin-top: 3rem;
-        }
-        
-        /* Media queries */
-        @media (max-width: 992px) {
-            .sidebar {
-                width: 30%;
-            }
-            
-            .main-content {
-                width: 70%;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                padding: 1rem;
-            }
-            
-            .sidebar, .main-content {
-                width: 100%;
-                padding: 0;
-                border: none;
-            }
-            
-            .sidebar {
-                margin-bottom: 2rem;
-            }
-            
-            .profile {
-                display: flex;
-                align-items: center;
-                text-align: left;
-            }
-            
-            .profile-image {
-                width: 100px;
-                height: 100px;
-                margin-right: 1rem;
-                margin-bottom: 0;
-            }
-            
-            .contact-info {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 1rem;
-            }
-            
-            .contact-info h3 {
-                width: 100%;
-            }
-            
-            .contact-item {
-                width: calc(50% - 0.5rem);
-            }
-            
-            /* .research-item-image {
-                height: 200px;
-            } */
-        }
-        
-        @media (max-width: 576px) {
-            .profile {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .profile-image {
-                margin-right: 0;
-                margin-bottom: 1rem;
-            }
-            
-            .contact-item {
-                width: 100%;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
@@ -470,6 +65,15 @@
                     <a href="#" title="LinkedIn">LinkedIn</a>
                 </div> -->
             </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#updates">Updates</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#publications">Publications</a></li>
+                    <li><a href="#honors">Honors & Awards</a></li>
+                </ul>
+            </nav>
         </div>
         
         <!-- Main Content -->
@@ -517,6 +121,70 @@
                         <span class="update-content">Began Ph.D. studies at Northeastern University with Prof. Ehsan Elhamifar.</span>
                     </li> -->
                 </ul>
+            </div>
+
+            <!-- Experience Section -->
+            <div class="section" id="experience">
+                <h2 class="section-title">Experience</h2>
+                <div class="experience-container">
+                    <div class="experience-item">
+                        <img src="./symbols/Microsoft.jpg" alt="Microsoft" class="experience-image">
+                        <div class="experience-info">
+                            <div class="experience-meta">
+                                <h3 class="experience-title">Research Intern at Microsoft</h3>
+                                <!-- <span class="experience-organization">Microsoft Responsible and Open AI Research Team</span> -->
+                                <span class="experience-duration">06/2024 - 09/2024</span>
+                            </div>
+                            <p class="experience-description">Worked on advancing responsible AI technologies with a focus on video understanding.</p>
+                        </div>
+                    </div>
+                    <div class="experience-item">
+                        <img src="./symbols/amazon-logo-on-transparent-background-free-vector.jpg"" alt="Amazon" class="experience-image">
+                        <div class="experience-info">
+                            <div class="experience-meta">
+                                <h3 class="experience-title">Applied Scientist Intern at Amazon AWS AI Lab</h3>
+                                <!-- <span class="experience-organization">Amazon AWS AI Lab</span> -->
+                                <span class="experience-duration">09/2022 - 03/2023</span>
+                            </div>
+                            <!-- <p class="experience-description">Developed state-of-the-art models for video understanding and action segmentation.</p> -->
+                        </div>
+                    </div>
+                    <div class="experience-item">
+                        <img src="./symbols/northeastern.png" alt="Northeastern University" class="experience-image">
+                        <div class="experience-info">
+                            <!-- <span class="experience-duration">2019 - Present</span> -->
+                            <div class="experience-meta">
+                                <!-- <h3 class="experience-title">Graduate Research Assistant in Northeastern University</h3> -->
+                                <h3 class="experience-title">Graduate Research Assistant in Northeastern University</h3>
+                                <!-- <span class="experience-organization">Northeastern University</span> -->
+                                <span class="experience-duration">09/2019 - Present</span>
+                            </div>
+                            <!-- <p class="experience-description">Focusing on Video-Text Understanding, including open-world video understanding, temporal modeling, and weakly supervised video-text learning.</p> -->
+                        </div>
+                    </div>
+                    <div class="experience-item">
+                        <img src="./symbols/cas2.jpg" alt="" class="experience-image">
+                        <div class="experience-info">
+                            <div class="experience-meta">
+                                <h3 class="experience-title">Student Researcher at Chinese Academy of Science</h3>
+                                <!-- <span class="experience-organization">NYU Shanghai</span> -->
+                                <span class="experience-duration">01/2018/01 - 12/2018</span>
+                            </div>
+                            <!-- <p class="experience-description">Graduated with a Major GPA of 3.98/4. Conducted research in computer vision and machine learning.</p> -->
+                        </div>
+                    </div>
+                    <!-- <div class="experience-item">
+                        <img src="./images/nyu.png" alt="NYU Shanghai" class="experience-image">
+                        <div class="experience-info">
+                            <h3 class="experience-title">Dual B.S. Degrees in Computer Science & Economics</h3>
+                            <div class="experience-meta">
+                                <span class="experience-organization">NYU Shanghai</span>
+                                <span class="experience-duration">2015 - 2019</span>
+                            </div>
+                            <p class="experience-description">Graduated with a Major GPA of 3.98/4. Conducted research in computer vision and machine learning.</p>
+                        </div>
+                    </div> -->
+                </div>
             </div>
             
             <!-- Combined Publications Section -->
