@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - PhD Student</title>
+    <style>
+        /* Global styles */
+        :root {
+            --primary-color: #1a237e;
+            --secondary-color: #3949ab;
+            --light-color: #f5f5f5;
+            --dark-color: #212121;
+            --text-color: #333333;
+            --max-width: 1200px;
+            --border-color: #e0e0e0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #ffffff;
+        }
+        
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+        
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        /* Left panel */
+        .sidebar {
+            width: 25%;
+            padding-right: 2rem;
+        }
+        
+        .profile {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+        }
+        
+        .profile-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .profile-title {
+            font-size: 1rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info {
+            margin-bottom: 2rem;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .contact-item {
+            display: flex;
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+        }
+        
+        .contact-icon {
+            width: 20px;
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+        }
+        
+        /* Main content */
+        .main-content {
+            width: 75%;
+            padding-left: 2rem;
+            border-left: 1px solid var(--border-color);
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            font-size: 1.75rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .about-content p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        
+        /* Research section */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .research-item {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+        
+        .research-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .research-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        
+        .research-item-content {
+            padding: 1.25rem;
+        }
+        
+        .research-item-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary-color);
+        }
+        
+        .research-item-content p {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Publications section */
+        .publications-list {
+            list-style: none;
+        }
+        
+        .publication-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .updates-list {
+            list-style: none;
+        }
+        
+        .update-item {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .update-date {
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-right: 1rem;
+            min-width: 100px;
+        }
+        
+        .update-content {
+            flex: 1;
+        }
+        
+        .publication-item:last-child {
+            border-bottom: none;
+        }
+        
+        .publication-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .publication-authors {
+            font-style: italic;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .publication-venue {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .publication-description {
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .publication-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 0.75rem;
+        }
+        
+        .publication-links a {
+            padding: 4px 8px;
+            border-radius: 4px;
+            background-color: var(--secondary-color);
+            color: white;
+            font-size: 0.8rem;
+        }
+        
+        .publication-links a:hover {
+            background-color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.9rem;
+            color: #777;
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+        }
+        
+        /* Media queries */
+        @media (max-width: 992px) {
+            .sidebar {
+                width: 30%;
+            }
+            
+            .main-content {
+                width: 70%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .sidebar, .main-content {
+                width: 100%;
+                padding: 0;
+                border: none;
+            }
+            
+            .sidebar {
+                margin-bottom: 2rem;
+            }
+            
+            .profile {
+                display: flex;
+                align-items: center;
+                text-align: left;
+            }
+            
+            .profile-image {
+                width: 100px;
+                height: 100px;
+                margin-right: 1rem;
+                margin-bottom: 0;
+            }
+            
+            .contact-info {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            
+            .contact-info h3 {
+                width: 100%;
+            }
+            
+            .contact-item {
+                width: calc(50% - 0.5rem);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .profile {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile-image {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .contact-item {
+                width: 100%;
+            }
+            
+            .research-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Sidebar -->
+        <div class="sidebar">
+            <div class="profile">
+                <img src="/api/placeholder/400/400" alt="Your Photo" class="profile-image">
+                <div class="profile-info">
+                    <h1 class="profile-name">Your Name</h1>
+                    <p class="profile-title">PhD Student in [Your Field]</p>
+                </div>
+            </div>
+            
+            <div class="contact-info">
+                <h3>Contact</h3>
+                <div class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <span>your.email@university.edu</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">🏢</span>
+                    <span>Building Name, Room Number</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <span>University Name, City, Country</span>
+                </div>
+            </div>
+            
+            <div class="contact-info">
+                <h3>Links</h3>
+                <div class="contact-item">
+                    <span class="contact-icon">📄</span>
+                    <a href="#">CV</a>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">🔍</span>
+                    <a href="#">Google Scholar</a>
+                </div>
+                <div class="social-links">
+                    <a href="#" title="GitHub">GitHub</a>
+                    <a href="#" title="LinkedIn">LinkedIn</a>
+                    <a href="#" title="Twitter">Twitter</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- About Section -->
+            <div class="section" id="about">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <p>I am a PhD student in [Your Field] at [Your University] under the supervision of [Your Advisor]. My research focuses on [detailed description of your research]. I am particularly interested in [specific research interests].</p>
+                    <p>Prior to my PhD, I received my [previous degree] from [previous institution] where I worked on [previous work]. My current research aims to [your research goals or aspirations].</p>
+                    <p>I am actively looking for collaboration opportunities in [related fields or topics]. Feel free to reach out if you're interested in discussing potential research ideas.</p>
+                </div>
+            </div>
+            
+            <!-- Updates Section -->
+            <div class="section" id="updates">
+                <h2 class="section-title">Updates</h2>
+                <ul class="updates-list">
+                    <li class="update-item">
+                        <span class="update-date">April 2025</span>
+                        <span class="update-content">Our paper "[Paper Title]" has been accepted to [Conference Name]!</span>
+                    </li>
+                    <li class="update-item">
+                        <span class="update-date">March 2025</span>
+                        <span class="update-content">I will be giving a talk at [University/Conference] on [Topic].</span>
+                    </li>
+                    <li class="update-item">
+                        <span class="update-date">February 2025</span>
+                        <span class="update-content">Our team received the [Award Name] for our work on [Research Topic].</span>
+                    </li>
+                    <li class="update-item">
+                        <span class="update-date">January 2025</span>
+                        <span class="update-content">Started a research internship at [Company/Institution].</span>
+                    </li>
+                    <li class="update-item">
+                        <span class="update-date">December 2024</span>
+                        <span class="update-content">Our demo was accepted at [Workshop/Conference].</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Research Section -->
+            <div class="section" id="research">
+                <h2 class="section-title">Research</h2>
+                <div class="research-grid">
+                    <div class="research-item">
+                        <img src="/api/placeholder/400/200" alt="Research Project 1">
+                        <div class="research-item-content">
+                            <h3>Research Project 1</h3>
+                            <p>Brief description of your research project. Explain the problem, your approach, and the impact of this work.</p>
+                            <a href="#">Learn more →</a>
+                        </div>
+                    </div>
+                    <div class="research-item">
+                        <img src="/api/placeholder/400/200" alt="Research Project 2">
+                        <div class="research-item-content">
+                            <h3>Research Project 2</h3>
+                            <p>Brief description of your research project. Explain the problem, your approach, and the impact of this work.</p>
+                            <a href="#">Learn more →</a>
+                        </div>
+                    </div>
+                    <div class="research-item">
+                        <img src="/api/placeholder/400/200" alt="Research Project 3">
+                        <div class="research-item-content">
+                            <h3>Research Project 3</h3>
+                            <p>Brief description of your research project. Explain the problem, your approach, and the impact of this work.</p>
+                            <a href="#">Learn more →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Publications Section -->
+            <div class="section" id="publications">
+                <h2 class="section-title">Publications</h2>
+                <ul class="publications-list">
+                    <li class="publication-item">
+                        <h3 class="publication-title">Your Paper Title Goes Here</h3>
+                        <p class="publication-authors"><strong>Your Name</strong>, Co-author Name, Co-author Name</p>
+                        <p class="publication-venue">Conference or Journal Name, Year</p>
+                        <p class="publication-description">Brief description of the paper and its contributions.</p>
+                        <div class="publication-links">
+                            <a href="#">Paper</a>
+                            <a href="#">Code</a>
+                            <a href="#">Project Page</a>
+                            <a href="#">Slides</a>
+                        </div>
+                    </li>
+                    <li class="publication-item">
+                        <h3 class="publication-title">Your Paper Title Goes Here</h3>
+                        <p class="publication-authors"><strong>Your Name</strong>, Co-author Name, Co-author Name</p>
+                        <p class="publication-venue">Conference or Journal Name, Year</p>
+                        <p class="publication-description">Brief description of the paper and its contributions.</p>
+                        <div class="publication-links">
+                            <a href="#">Paper</a>
+                            <a href="#">Code</a>
+                            <a href="#">Project Page</a>
+                            <a href="#">Slides</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- News Section -->
+            <div class="section" id="news">
+                <h2 class="section-title">News &amp; Media</h2>
+                <ul class="publications-list">
+                    <li class="publication-item">
+                        <p class="publication-venue">April 2025</p>
+                        <p class="publication-description">Our research was featured in [Journal/Magazine/Media Outlet].</p>
+                    </li>
+                    <li class="publication-item">
+                        <p class="publication-venue">February 2025</p>
+                        <p class="publication-description">Interview with [Media Outlet] about our recent findings in [Research Area].</p>
+                    </li>
+                    <li class="publication-item">
+                        <p class="publication-venue">October 2024</p>
+                        <p class="publication-description">Our project was highlighted in [University Newsletter/Blog].</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Your Name. Last updated: April 2025</p>
+    </footer>
+</body>
+</html>

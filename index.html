@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - PhD Student</title>
+    <title>About Me - Zijia Lu</title>
     <style>
         /* Global styles */
         :root {
@@ -11,7 +11,9 @@
             --secondary-color: #3949ab;
             --light-color: #f5f5f5;
             --dark-color: #212121;
+            --text-color: #333333;
             --max-width: 1200px;
+            --border-color: #e0e0e0;
         }
         
         * {
@@ -23,8 +25,8 @@
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            color: var(--dark-color);
-            background-color: var(--light-color);
+            color: var(--text-color);
+            background-color: #ffffff;
         }
         
         a {
@@ -41,426 +43,732 @@
         .container {
             max-width: var(--max-width);
             margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header */
-        header {
-            background-color: white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        nav {
+            padding: 2rem;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
+            flex-wrap: wrap;
         }
         
-        .logo a {
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--primary-color);
-            text-decoration: none;
+        /* Left panel */
+        .sidebar {
+            width: 20%;
+            padding-right: 2rem;
         }
         
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 30px;
-        }
-        
-        .nav-links a {
-            color: var(--dark-color);
-            font-weight: 500;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-        
-        /* Hero section */
-        .hero {
-            display: flex;
-            align-items: center;
-            padding: 60px 0;
-        }
-        
-        .hero-image {
-            flex: 1;
+        .profile {
             text-align: center;
+            margin-bottom: 2rem;
         }
         
-        .hero-image img {
-            width: 300px;
-            height: 300px;
+        .profile-image {
+            width: 180px;
+            height: 180px;
             object-fit: cover;
             border-radius: 50%;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
         }
         
-        .hero-text {
-            flex: 2;
-            padding-left: 50px;
-        }
-        
-        .hero-text h1 {
-            font-size: 40px;
-            margin-bottom: 10px;
+        .profile-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
             color: var(--primary-color);
         }
         
-        .hero-text h2 {
-            font-size: 24px;
-            font-weight: 400;
-            margin-bottom: 20px;
+        .profile-title {
+            font-size: 1rem;
             color: var(--secondary-color);
+            margin-bottom: 1rem;
         }
         
-        .hero-text p {
-            font-size: 18px;
-            margin-bottom: 30px;
+        .contact-info {
+            margin-bottom: 2rem;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .contact-item {
+            display: flex;
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+        }
+        
+        .contact-icon {
+            /* width: 20px; */
+            height: 20px;
+            margin-right: 10px;
+            color: var(--secondary-color);
         }
         
         .social-links {
             display: flex;
+            justify-content: center;
             gap: 15px;
+            margin-top: 1.5rem;
         }
         
         .social-links a {
-            font-size: 24px;
+            font-size: 1.1rem;
             color: var(--secondary-color);
         }
         
-        /* Sections */
-        section {
-            padding: 60px 0;
+        /* Main content */
+        .main-content {
+            width: 75%;
+            padding-left: 2rem;
+            border-left: 1px solid var(--border-color);
         }
         
-        section:nth-child(even) {
-            background-color: white;
+        .section {
+            margin-bottom: 3rem;
         }
         
-        .section-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .section-header h2 {
-            font-size: 32px;
+        .section-title {
+            font-size: 1.75rem;
             color: var(--primary-color);
+            margin-bottom: 1.5rem;
             position: relative;
-            display: inline-block;
-            padding-bottom: 10px;
+            padding-bottom: 0.75rem;
         }
         
-        .section-header h2::after {
+        .section-title::after {
             content: '';
             position: absolute;
-            width: 50%;
+            width: 100px;
             height: 3px;
             background-color: var(--secondary-color);
             bottom: 0;
-            left: 25%;
+            left: 0;
         }
         
-        /* About section */
-        .about-content {
-            display: flex;
-            justify-content: space-between;
-            gap: 40px;
-        }
-        
-        .about-text {
-            flex: 2;
+        .about-content p {
+            margin-bottom: 1rem;
+            text-align: justify;
         }
         
         /* Research section */
-        .research-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+        .research-container {
+            margin-bottom: 2rem;
         }
         
         .research-item {
             background-color: white;
-            border-radius: 5px;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
         }
-        
+
         .research-item:hover {
             transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-        
-        .research-item img {
+
+        .research-item-top {
+            display: flex;
+            flex-direction: row;
+            position: relative; /* Added for the vertical bar */
+        }
+
+        .research-item-separator {
+            width: 1px;
+            background-color: var(--border-color);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 60%; /* Aligns with the end of research-item-left */
+        }
+
+        .research-item-left {
+            width: 60%;
+            padding: 1rem;
+        }
+
+        .research-item-image {
             width: 100%;
-            height: 200px;
+            /* height: 200px; */
+            margin-bottom: 1rem;
+        }
+
+        .research-item-image img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
+            border-radius: 4px;
         }
-        
-        .research-item-content {
-            padding: 20px;
-        }
-        
-        .research-item-content h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-            color: var(--primary-color);
-        }
-        
-        /* Publications section */
-        .publications-list {
-            list-style: none;
-        }
-        
-        .publication-item {
-            margin-bottom: 25px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        
-        .publication-item:last-child {
-            border-bottom: none;
-        }
-        
+
         .publication-title {
-            font-size: 20px;
-            margin-bottom: 5px;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
             color: var(--primary-color);
+            font-weight: 600;
         }
-        
+
         .publication-authors {
             font-style: italic;
-            margin-bottom: 5px;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
         }
-        
+
         .publication-venue {
             font-weight: bold;
-            margin-bottom: 5px;
+            font-size: 0.9rem;
         }
-        
+
+        .research-item-right {
+            width: 40%;
+            padding: 1rem;
+        }
+
+        .publication-description {
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        .research-item-bottom {
+            padding: 0.75rem 1rem;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
         .publication-links {
             display: flex;
-            gap: 15px;
-            margin-top: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
-        
+
         .publication-links a {
-            padding: 5px 10px;
-            border-radius: 3px;
-            background-color: var(--secondary-color);
-            color: white;
-            font-size: 14px;
+            padding: 5px 12px;
+            border-radius: 4px;
+            /* background-color: var(--secondary-color);
+            color: white; */
+            color: var(--secondary-color);
+            background-color: white;
+            border: 1.5px solid var(--secondary-color); /* Added border color */
+            /* border-color: white; */
+            font-size: 0.8rem;
+            transition: background-color 0.3s ease;
+            /* font-weight: bold; */
         }
-        
+
         .publication-links a:hover {
             background-color: var(--primary-color);
             text-decoration: none;
+            color: white; /* Optional: Change text color on hover */
         }
-        
-        /* Contact section */
-        .contact-content {
+
+        .publication-tags {
             display: flex;
-            justify-content: space-between;
-            gap: 40px;
+            flex-wrap: wrap;
+            gap: 8px;
+            /* margin-top: 0.5rem; */
+        }
+
+        .publication-tag {
+            /* padding: 3px 10px; */
+            padding: 5px 12px;
+            border-radius: 20px;
+            /* background-color: #e0e0e0;
+            color: #555; */
+            color: #555;
+            border: 1.5px solid #e0e0e0;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .research-item-top {
+                flex-direction: column;
+            }
+            
+            .research-item-left, 
+            .research-item-right {
+                width: 100%;
+                padding: 1rem 1rem 0.5rem 1rem;
+            }
+            
+            .research-item-image {
+                height: 180px;
+            }
+        }
+        .updates-list {
+            list-style: none;
         }
         
-        .contact-info {
+        .update-item {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .update-date {
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-right: 1rem;
+            min-width: 100px;
+        }
+        
+        .update-content {
             flex: 1;
-        }
-        
-        .contact-info p {
-            margin-bottom: 15px;
         }
         
         /* Footer */
         footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 30px 0;
             text-align: center;
+            padding: 1.5rem;
+            font-size: 0.9rem;
+            color: #777;
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
         }
         
         /* Media queries */
-        @media (max-width: 768px) {
-            .hero {
-                flex-direction: column;
+        @media (max-width: 992px) {
+            .sidebar {
+                width: 30%;
             }
             
-            .hero-text {
-                padding-left: 0;
-                padding-top: 30px;
+            .main-content {
+                width: 70%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .sidebar, .main-content {
+                width: 100%;
+                padding: 0;
+                border: none;
+            }
+            
+            .sidebar {
+                margin-bottom: 2rem;
+            }
+            
+            .profile {
+                display: flex;
+                align-items: center;
+                text-align: left;
+            }
+            
+            .profile-image {
+                width: 100px;
+                height: 100px;
+                margin-right: 1rem;
+                margin-bottom: 0;
+            }
+            
+            .contact-info {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            
+            .contact-info h3 {
+                width: 100%;
+            }
+            
+            .contact-item {
+                width: calc(50% - 0.5rem);
+            }
+            
+            /* .research-item-image {
+                height: 200px;
+            } */
+        }
+        
+        @media (max-width: 576px) {
+            .profile {
+                flex-direction: column;
                 text-align: center;
             }
             
-            .social-links {
-                justify-content: center;
+            .profile-image {
+                margin-right: 0;
+                margin-bottom: 1rem;
             }
             
-            .about-content {
-                flex-direction: column;
-            }
-            
-            .contact-content {
-                flex-direction: column;
+            .contact-item {
+                width: 100%;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">
-                    <a href="#">Your Name</a>
+    <div class="container">
+        <!-- Left Sidebar -->
+        <div class="sidebar">
+            <div class="profile">
+                <img src="./images/photo.jpg" alt="Zijia Lu" class="profile-image">
+                <div class="profile-info">
+                    <h1 class="profile-name">Zijia Lu</h1>
+                    <p class="profile-title">Ph.D. Candidate in Computer Science</p>
                 </div>
-                <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#research">Research</a></li>
-                    <li><a href="#publications">Publications</a></li>
-                    <li><a href="#contact">Contact</a></li>
+            </div>
+            
+            <div class="contact-info">
+                <!-- <h3>Contact</h3> -->
+                <div class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <span>lu.zij at northeastern dot edu</span>
+                </div>
+                <!-- <div class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <span>857-654-0908</span>
+                </div> -->
+                <!-- <div class="contact-item">
+                    <span class="contact-icon">🏢</span>
+                    <span>Northeastern University</span>
+                </div> -->
+                <!-- <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <span>Boston, USA</span>
+                </div> -->
+            <!-- </div> -->
+            
+            <!-- <div class="contact-info"> -->
+                <!-- <h3>Links</h3> -->
+                <!-- <div class="contact-item">
+                    <span class="contact-icon">📄</span>
+                    <a href="#">CV</a>
+                </div> -->
+                <div class="contact-item">
+                    <!-- <span class="contact-icon">🔍</span> -->
+                    <img src="symbols/icons8-google-scholar-50.png" alt="Github Icon" class="contact-icon">
+                    <a href="https://scholar.google.com/citations?user=xEGL7NsAAAAJ&hl=en&oi=ao">Google Scholar</a>
+                </div>
+                <div class="contact-item">
+                    <!-- <span class="contact-icon">🔍</span> -->
+                    <img src="symbols/icons8-github-30.png" alt="Github Icon" class="contact-icon">
+                    <a href="https://github.com/ZijiaLewisLu">Github</a>
+                </div>
+                <div class="contact-item">
+                    <!-- <span class="contact-icon">🔍</span> -->
+                    <img src="symbols/icons8-linkedin-circled-48.png" alt="LinkedIn Icon" class="contact-icon">
+                    <a href="https://www.linkedin.com/in/zijialewislu">LinkedIn</a>
+                </div>
+                <!-- <div class="social-links">
+                    <a href="#" title="GitHub">GitHub</a>
+                    <a href="#" title="LinkedIn">LinkedIn</a>
+                </div> -->
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- About Section -->
+            <div class="section" id="about">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <p>I am a Ph.D. Candidate in Computer Science at Northeastern University, focusing on Video-Text Understanding. My research interests include open-world video understanding, temporal modeling, action segmentation, and weakly supervised video-text learning.</p>
+                    <p>Prior to my Ph.D., I received dual B.S. degrees in Computer Science & Economics from NYU Shanghai with a Major GPA of 3.98/4. I have extensive research and industry experience, having worked as a Research Assistant with Prof. Ehsan Elhamifar, a Research Intern at Microsoft's Responsible and Open AI Research Team, an Applied Scientist Intern at Amazon's AWS AI Lab, a Student Researcher at Chinese Academic of Sciences, and an Architecture Team Summer Intern at NVIDIA.</p>
+                    <p>My research aims to advance the understanding of video content through efficient temporal modeling, action segmentation, error detection, and multi-object tracking. I am actively looking for collaboration opportunities in computer vision and video understanding.</p>
+                </div>
+            </div>
+            
+            <!-- Updates Section -->
+            <div class="section" id="updates">
+                <h2 class="section-title">Updates</h2>
+                <ul class="updates-list">
+                    <li class="update-item">
+                        <span class="update-date">April 2025</span>
+                        <span class="update-content">One paper on efficient temporal grounding is accepted to CVPR2025.</span>
+                    </li>
+                    <li class="update-item">
+                        <span class="update-date">June 2024</span>
+                        <span class="update-content">Started Research Internship at Microsoft Responsible and Open AI Research Team.</span>
+                    </li>
+                    <li class="update-item">
+                        <span class="update-date">April 2024</span>
+                        <span class="update-content">Three papers accepted to CVPR 2024, with one designated as a "Highlight" paper.</span>
+                    </li>
+                    <li class="update-item">
+                        <span class="update-date">September 2022</span>
+                        <span class="update-content">Started as an Applied Scientist Intern at Amazon's AWS AI Lab.</span>
+                    </li>
+                    <li class="update-item">
+                        <span class="update-date">April 2022</span>
+                        <span class="update-content">One papers accepted to CVPR 2022.</span>
+                    </li>
+                    <li class="update-item">
+                        <span class="update-date">June 2021</span>
+                        <span class="update-content">One papers accepted to ICCV 2021.</span>
+                    </li>
+                    <li class="update-item">
+                        <span class="update-date">September 2019</span>
+                        <span class="update-content">Began Ph.D. studies at Northeastern University under Prof. Ehsan Elhamifar.</span>
+                    </li>
                 </ul>
-            </nav>
-        </div>
-    </header>
-    
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-image">
-                <img src="images/photo.jpg" alt="Your Photo">
             </div>
-            <div class="hero-text">
-                <h1>Your Name</h1>
-                <h2>PhD Student in [Your Field]</h2>
-                <p>I am a PhD student at [Your University] working on [brief description of your research focus]. My research interests include [list your research interests].</p>
-                <div class="social-links">
-                    <a href="#" title="GitHub"><i class="fa fa-github"></i>GitHub</a>
-                    <a href="#" title="LinkedIn"><i class="fa fa-linkedin"></i>LinkedIn</a>
-                    <a href="#" title="Twitter"><i class="fa fa-twitter"></i>Twitter</a>
-                    <a href="#" title="Google Scholar"><i class="fa fa-graduation-cap"></i>Scholar</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <div class="section-header">
-                <h2>About Me</h2>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>I am a PhD student in [Your Field] at [Your University] under the supervision of [Your Advisor]. My research focuses on [detailed description of your research].</p>
-                    <p>Prior to my PhD, I received my [previous degree] from [previous institution] where I worked on [previous work].</p>
-                    <p>I am particularly interested in [elaborate on your research interests]. My goal is to [your research goals or aspirations].</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Research Section -->
-    <section id="research">
-        <div class="container">
-            <div class="section-header">
-                <h2>Research</h2>
-            </div>
-            <div class="research-grid">
-                <div class="research-item">
-                    <img src="images/photo.jpg" alt="Research Project 1">
-                    <div class="research-item-content">
-                        <h3>Research Project 1</h3>
-                        <p>Brief description of your research project. Explain the problem, your approach, and the impact of this work.</p>
-                        <a href="#">Learn more →</a>
+            
+            <!-- Combined Publications Section -->
+            <div class="section" id="publications">
+                <h2 class="section-title">Selected Publications</h2>
+                <div class="research-container">
+
+                    <div class="research-item">
+                        <div class="research-item-top">
+                            <div class="research-item-left">
+                                <div class="research-item-image">
+                                    <img src="./images/decaf2.png" alt="DeCafNet">
+                                </div>
+                                <h3 class="publication-title">DeCafNet: Delegate and Conquer for Efficient Temporal Grounding in Long Videos</h3>
+                                <p class="publication-authors"><strong>Zijia Lu</strong>, A S M Iftekhar, Gaurav Mittal, Tianjian Meng, Xiawei Wang, Cheng Zhao, Rohith Kukkala, Ehsan Elhamifar, Mei Chen</p>
+                                <p class="publication-venue">CVPR 2025</p>
+                            </div>
+                            <div class="research-item-separator"></div> <!-- Added separator -->
+                            <div class="research-item-right">
+                                <p class="publication-description">Proposed a novel Delegate-and-Conquer method that achieves state-of-the-art performance with 47%-66% lower computation for efficient temporal sentence grounding in hour-long videos.</p>
+                            </div>
+                        </div>
+                        <div class="research-item-bottom">
+                            <div class="publication-links">
+                                <a href="https://cvpr.thecvf.com/virtual/2025/poster/32761">Paper</a>
+                                <a href="#">Code</a>
+                            </div>
+                            <div class="publication-tags">
+                                <span class="publication-tag">Temporal Video Grounding</span>
+                                <span class="publication-tag">Efficient Video Encoder</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="research-item">
+                        <div class="research-item-top">
+                            <div class="research-item-left">
+                                <div class="research-item-image">
+                                    <img src="./images/fact.png" alt="FACT">
+                                </div>
+                                <h3 class="publication-title">FACT: Frame-Action Cross-Attention Temporal Modeling for Efficient Fully-Supervised Action Segmentation</h3>
+                                <p class="publication-authors"><strong>Zijia Lu</strong>, Ehsan Elhamifar</p>
+                                <p class="publication-venue">CVPR 2024</p>
+                            </div>
+                            <div class="research-item-separator"></div> <!-- Added separator -->
+                            <div class="research-item-right">
+                                <p class="publication-description">Proposed an efficient framework of synchronized temporal modeling on multi-levels (frame/action). Achieved state-of-the-art results on 4 datasets with lower inference time and enabled Vision-Language Learning.</p>
+                            </div>
+                        </div>
+                        <div class="research-item-bottom">
+                            <div class="publication-links">
+                                <a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Lu_FACT_Frame-Action_Cross-Attention_Temporal_Modeling_for_Efficient_Action_Segmentation_CVPR_2024_paper.pdf">Paper</a>
+                                <a href="https://github.com/ZijiaLewisLu/CVPR2024-FACT">Code</a>
+                            </div>
+                            <div class="publication-tags">
+                                <span class="publication-tag">Long Temporal Modeling</span>
+                                <span class="publication-tag">Multi-Modal Learning</span>
+                                <span class="publication-tag">Model Efficiency</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="research-item">
+                        <div class="research-item-top">
+                            <div class="research-item-left">
+                                <div class="research-item-image">
+                                    <img src="./images/pcl.png" alt="Self-Supervised Multi-Object Tracking">
+                                </div>
+                                <h3 class="publication-title">Self-Supervised Multi-Object Tracking with Path Consistency</h3>
+                                <p class="publication-authors"><strong>Zijia Lu</strong>, Bing Shuai, Yanbei Chen, Zhenlin Xu, Davide Modolo</p>
+                                <p class="publication-venue">CVPR 2024 Highlight</p>
+                            </div>
+                            <div class="research-item-separator"></div> <!-- Added separator -->
+                            <div class="research-item-right">
+                                <p class="publication-description">Proposed a new tracking self-supervision objective with improved robustness to occlusion and appearance changes. Outperformed existing works on popular benchmarks.</p>
+                            </div>
+                        </div>
+                        <div class="research-item-bottom">
+                            <div class="publication-links">
+                                <a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Lu_Self-Supervised_Multi-Object_Tracking_with_Path_Consistency_CVPR_2024_paper.pdf">Paper</a>
+                                <a href="https://github.com/amazon-science/path-consistency">Code</a>
+                            </div>
+                            <div class="publication-tags">
+                                <span class="publication-tag">Multi-Object Tracking</span>
+                                <span class="publication-tag">Self-Supervised Learning</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="research-item">
+                        <div class="research-item-top">
+                            <div class="research-item-left">
+                                <div class="research-item-image">
+                                    <img src="./images/egoper.png" alt="Error Detection">
+                                </div>
+                                <h3 class="publication-title">Error Detection in Egocentric Procedural Task Videos</h3>
+                                <p class="publication-authors">Shih-Po Lee, <strong>Zijia Lu</strong>, Zekun Zhang, Minh Hoai, Ehsan Elhamifar</p>
+                                <p class="publication-venue">CVPR 2024</p>
+                            </div>
+                            <div class="research-item-separator"></div> <!-- Added separator -->
+                            <div class="research-item-right">
+                                <p class="publication-description">Proposed Spatio-Temporal & Contrastive Learning method for error detection in procedural videos. Collected Egocentric Procedural Error Detection dataset of extensive error types.</p>
+                            </div>
+                        </div>
+                        <div class="research-item-bottom">
+                            <div class="publication-links">
+                                <a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Lee_Error_Detection_in_Egocentric_Procedural_Task_Videos_CVPR_2024_paper.pdf">Paper</a>
+                                <a href="https://github.com/robert80203/EgoPER_official">Code & Dataset</a>
+                            </div>
+                            <div class="publication-tags">
+                                <span class="publication-tag">Egocentric Understanding</span>
+                                <span class="publication-tag">Error Detection</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="research-item">
+                        <div class="research-item-top">
+                            <div class="research-item-left">
+                                <div class="research-item-image">
+                                    <img src="./images/poc.png" alt="Set-Supervised Action Learning">
+                                </div>
+                                <h3 class="publication-title">Set-Supervised Action Learning in Procedural Task Videos via Pairwise Order Consistency</h3>
+                                <p class="publication-authors"><strong>Zijia Lu</strong>, Ehsan Elhamifar</p>
+                                <p class="publication-venue">CVPR 2022</p>
+                            </div>
+                            <div class="research-item-separator"></div> <!-- Added separator -->
+                            <div class="research-item-right">
+                                <p class="publication-description">Proposed enhanced Action Modeling via Multi-Dimension Subspaces to capture large intra-class variations in weakly supervised video-text learning scenarios.</p>
+                            </div>
+                        </div>
+                        <div class="research-item-bottom">
+                            <div class="publication-links">
+                                <a href="http://www.khoury.northeastern.edu/home/eelhami/publications/setSupSegmentation-CVPR22.pdf">Paper</a>
+                                <a href="https://github.com/ZijiaLewisLu/CVPR22-POC">Code</a>
+                            </div>
+                            <div class="publication-tags">
+                                <span class="publication-tag">Video-Text Alignment</span>
+                                <span class="publication-tag">Differentiable Sequence Metric</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="research-item">
+                        <div class="research-item-top">
+                            <div class="research-item-left">
+                                <div class="research-item-image">
+                                    <img src="./images/tasl.png" alt="Weakly-supervised Action Segmentation">
+                                </div>
+                                <h3 class="publication-title">Weakly-supervised Action Segmentation and Alignment via Transcript-Aware Union-of-subspaces Learning</h3>
+                                <p class="publication-authors"><strong>Zijia Lu</strong>, Ehsan Elhamifar</p>
+                                <p class="publication-venue">ICCV 2022</p>
+                            </div>
+                            <div class="research-item-separator"></div> <!-- Added separator -->
+                            <div class="research-item-right">
+                                <p class="publication-description">Proposed Self-Supervised method to Recover and Learn Action Temporal Dependencies; Doubled the accuracies of state-of-the-art approaches for weakly supervised video-text learning.</p>
+                            </div>
+                        </div>
+                        <div class="research-item-bottom">
+                            <div class="publication-links">
+                                <a href="http://www.khoury.northeastern.edu/home/eelhami/publications/TASL-ICCV21.pdf">Paper</a>
+                                <a href="https://github.com/ZijiaLewisLu/ICCV21-TASL">Code</a>
+                            </div>
+                            <div class="publication-tags">
+                                <span class="publication-tag">Video-Text Alignment</span>
+                                <span class="publication-tag">Weakly-supervised Learning</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="research-item">
+                        <div class="research-item-top">
+                            <div class="research-item-left">
+                                <div class="research-item-image">
+                                    <img src="./images/dft-net.png" alt="Zero-Shot Facial Expression Recognition">
+                                </div>
+                                <h3 class="publication-title">Dft-Net: Disentanglement of face deformation and texture synthesis for expression editing</h3>
+                                <p class="publication-authors">Jinghui Wang, Jie Zhang, <strong>Zijia Lu</strong>, Shiguang Shan</p>
+                                <p class="publication-venue">ICIP 2019</p>
+                            </div>
+                            <div class="research-item-separator"></div> <!-- Added separator -->
+                            <div class="research-item-right">
+                                <!-- <p class="publication-description">Proposed a new Transductive Label Propagation method and the first Open-Set Facial Expression Recognition dataset.</p> -->
+                            </div>
+                        </div>
+                        <div class="research-item-bottom">
+                            <div class="publication-links">
+                                <a href="https://ieeexplore.ieee.org/abstract/document/8803416">Paper</a>
+                            </div>
+                            <div class="publication-tags">
+                                <span class="publication-tag">Image Generation</span>
+                                <span class="publication-tag">Emotion Editing</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="research-item">
+                        <div class="research-item-top">
+                            <div class="research-item-left">
+                                <div class="research-item-image">
+                                    <img src="./images/zml2p.png" alt="Zero-Shot Facial Expression Recognition">
+                                </div>
+                                <h3 class="publication-title">Zero-Shot Facial Expression Recognition with Multi-Label Label Propagation</h3>
+                                <p class="publication-authors"><strong>Zijia Lu</strong>, Jiabei Zeng, Shiguang Shan, Xilin Chen</p>
+                                <p class="publication-venue">ACCV 2018 Oral</p>
+                            </div>
+                            <div class="research-item-separator"></div> <!-- Added separator -->
+                            <div class="research-item-right">
+                                <p class="publication-description">Proposed a new Transductive Label Propagation method and the first Open-Set Facial Expression Recognition dataset.</p>
+                            </div>
+                        </div>
+                        <div class="research-item-bottom">
+                            <div class="publication-links">
+                                <a href="https://link.springer.com/chapter/10.1007/978-3-030-20893-6_2">Paper</a>
+                                <a href="https://github.com/ZijiaLewisLu/ACCV18-ZML2P">Code & Dataset</a>
+                            </div>
+                            <div class="publication-tags">
+                                <span class="publication-tag">Facial Expression Recognition</span>
+                                <span class="publication-tag">Zero-Shot Learning</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="research-item">
-                    <img src="images/photo.jpg" alt="Research Project 2">
-                    <div class="research-item-content">
-                        <h3>Research Project 2</h3>
-                        <p>Brief description of your research project. Explain the problem, your approach, and the impact of this work.</p>
-                        <a href="#">Learn more →</a>
-                    </div>
-                </div>
-                <div class="research-item">
-                    <img src="images/photo.jpg" alt="Research Project 3">
-                    <div class="research-item-content">
-                        <h3>Research Project 3</h3>
-                        <p>Brief description of your research project. Explain the problem, your approach, and the impact of this work.</p>
-                        <a href="#">Learn more →</a>
-                    </div>
-                </div>
+            </div>
+            
+            <!-- News Section -->
+            <div class="section" id="honors">
+                <h2 class="section-title">Honors &amp; Awards</h2>
+                <ul class="publications-list">
+                    <li class="publication-item">
+                        <p class="publication-venue">2019</p>
+                        <p class="publication-description">NYU University Honors Scholar (for top-ranking graduates)</p>
+                    </li>
+                    <li class="publication-item">
+                        <p class="publication-venue">2019</p>
+                        <p class="publication-description">Undergraduate Scholarship of University of Chinese Academy of Sciences</p>
+                    </li>
+                    <li class="publication-item">
+                        <p class="publication-venue">2017</p>
+                        <p class="publication-description">Meritorious Winner of 2017 Interdisciplinary Contest in Modeling</p>
+                    </li>
+                    <li class="publication-item">
+                        <p class="publication-venue">2016</p>
+                        <p class="publication-description">NYU Shanghai Deans' Undergrad Research Fund</p>
+                    </li>
+                </ul>
             </div>
         </div>
-    </section>
-    
-    <!-- Publications Section -->
-    <section id="publications">
-        <div class="container">
-            <div class="section-header">
-                <h2>Publications</h2>
-            </div>
-            <ul class="publications-list">
-                <li class="publication-item">
-                    <h3 class="publication-title">Your Paper Title Goes Here</h3>
-                    <p class="publication-authors"><strong>Your Name</strong>, Co-author Name, Co-author Name</p>
-                    <p class="publication-venue">Conference or Journal Name, Year</p>
-                    <p class="publication-description">Brief description of the paper and its contributions.</p>
-                    <div class="publication-links">
-                        <a href="#">Paper</a>
-                        <a href="#">Code</a>
-                        <a href="#">Project Page</a>
-                        <a href="#">Slides</a>
-                    </div>
-                </li>
-                <li class="publication-item">
-                    <h3 class="publication-title">Your Paper Title Goes Here</h3>
-                    <p class="publication-authors"><strong>Your Name</strong>, Co-author Name, Co-author Name</p>
-                    <p class="publication-venue">Conference or Journal Name, Year</p>
-                    <p class="publication-description">Brief description of the paper and its contributions.</p>
-                    <div class="publication-links">
-                        <a href="#">Paper</a>
-                        <a href="#">Code</a>
-                        <a href="#">Project Page</a>
-                        <a href="#">Slides</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </section>
-    
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2>Contact</h2>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <p><strong>Email:</strong> your.email@university.edu</p>
-                    <p><strong>Office:</strong> Building Name, Room Number</p>
-                    <p><strong>Address:</strong> Department Name, University Name, City, Country</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
     
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <p>© 2025 Your Name. All rights reserved.</p>
-            <p>Last updated: April 2025</p>
-        </div>
+        <p>© 2025 Zijia Lu. Last updated: April 2025</p>
     </footer>
 </body>
 </html>
