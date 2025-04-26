@@ -201,6 +201,11 @@ a:hover {
     font-size: 1.2rem;
 }
 
+.about-content org {
+    color: var(--secondary-color); /* Use the secondary color for blue text */
+    /* font-weight: bold;  */
+}
+
 /* Research section */
 .research-container {
     margin-bottom: 2rem;
@@ -525,3 +530,4 @@ footer {
     font-size: 1.2rem;
     vertical-align: middle;
 }
+
