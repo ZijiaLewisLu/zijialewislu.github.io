@@ -360,6 +360,59 @@ a:hover {
     line-height: 1.6;
 }
 
+.publication-description {
+    font-size: 1rem;
+    /* text-align: justify; */
+    line-height: 1.5;
+    margin: 0;
+    padding-left: 0; /* Remove default padding */
+    list-style-type: none; /* Remove default bullets */
+}
+    
+.publication-description li {
+    position: relative;
+    padding-left: 1.5em;
+    margin-bottom: 0.5rem; /* Increase space between bullet points */
+}
+
+.publication-description li::before {
+    position: absolute;
+    left: 0;
+}
+
+.publication-description li.regular::before {
+    /* content: "•";  */
+    content: "●";  /* Black circle (larger than standard bullet) */
+    /* font-size: 0.5em; */
+    /* font-size: em; */
+    /* left: 0.2em; */
+    color: var(--primary-color);
+}
+
+.publication-description li.star::before {
+    /* content: "◆";  */
+    content: "▶"; /* Star bullet */
+    /* font-size: 1.2em; */
+    /* top: 0.4em;  */
+    color: var(--primary-color);
+    /* color: #3a6ea5; */
+}
+
+.publication-description li span {
+    padding: 1px 3px;
+    border-radius: 8px;
+    background-color: rgba(25, 118, 210, 0.1);
+    color: var(--primary-color);
+    /* font-size: 0.9rem; */
+    font-weight: bold;
+    transition: var(--transition);
+}
+
+.research-item-right org {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
 .research-item-bottom {
     padding: 1rem 1.5rem;
     border-top: 1px solid var(--border-color);
@@ -407,6 +460,7 @@ a:hover {
     font-weight: bold;
     transition: var(--transition);
 }
+
 
 .publication-tag:hover {
     background-color: rgba(25, 118, 210, 0.2);
@@ -704,5 +758,3 @@ footer {
         transform: translateY(0);
     }
 }
-
-/* Add this JavaScript to your page */
