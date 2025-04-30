@@ -12,24 +12,16 @@
     --transition: all 0.3s ease;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
+/* Base Styles */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
     font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
     font-size: 18px;
     line-height: 1.8;
     color: var(--text-color);
-    background-color: #ffffff;
+    background-color: #fff;
 }
-
 a {
     color: var(--primary-color);
     text-decoration: none;
@@ -293,18 +285,16 @@ a:hover {
 
 .research-item-right {
     width: 30%;
-    padding: 1.5rem;
-    padding-left: 0.75rem;
+    padding: 1.5rem 0.75rem 50px 0.75rem;
     opacity: 0;
     visibility: hidden;
     position: absolute;
     right: 0;
     top: 0;
     height: 100%;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    background-color: white;
+    background-color: #fff;
     transform: translateX(100%);
-    padding-bottom: 50px;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
     overflow-y: auto; /* Enable vertical scrolling */
 }
 
