@@ -73,18 +73,27 @@ document.addEventListener('DOMContentLoaded', function() {
             // Toggle expanded class
             if (!item.classList.contains('expanded')) {
                 // Expanding
+                // First, measure the current width in pixels
+                const currentWidthPx = leftContent.offsetWidth;
                 
-                // 1. Temporarily disable transitions
+                // 1. Temporarily disable transitions on critical elements
                 item.style.transition = 'none';
                 leftContent.style.transition = 'none';
                 rightContent.style.transition = 'none';
                 separator.style.transition = 'none';
+                toggleButton.style.transition = 'none'; // Disable button transitions
                 
-                // 2. Force a browser reflow to ensure the transition removal takes effect
+                // 2. Force a browser reflow
                 void item.offsetWidth;
                 
-                // 3. Set the fixed width for left content before expanding
-                leftContent.style.width = leftContent.offsetWidth + 'px';
+                // 3. Set the fixed width for left content and position button properly before expanding
+                if (window.innerWidth > 768) {
+                    leftContent.style.width = currentWidthPx + 'px';
+                    // Pre-position the toggle button where it will end up
+                    if (window.innerWidth > 768) {
+                        toggleButton.style.right = 'calc(40% + 15px)';
+                    }
+                }
                 
                 // 4. Force another reflow
                 void item.offsetWidth;
@@ -92,14 +101,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 // 5. Add the expanded class
                 item.classList.add('expanded');
                 
-                // 6. Re-enable transitions but AFTER expanding
+                // 6. Re-enable transitions after a tiny delay (but not on button position)
                 setTimeout(() => {
                     item.style.transition = '';
-                    leftContent.style.transition = '';
                     rightContent.style.transition = '';
                     separator.style.transition = '';
+                    leftContent.style.transition = '';
+                    toggleButton.style.transition = 'background-color 0.3s ease, transform 0.3s ease'; // Only restore non-position transitions
                     
-                    // 7. Release the fixed width AFTER the animation completes
+                    // 7. Wait for the expansion animation to complete
                     setTimeout(() => {
                         leftContent.style.width = '';
                     }, 300);
@@ -108,17 +118,48 @@ document.addEventListener('DOMContentLoaded', function() {
                 iconSpan.innerHTML = '−'; // Em dash for minus
                 textSpan.textContent = 'Hide details';
             } else {
-                // Collapsing is simpler - just remove the class
+                // Collapsing
+                // 1. Temporarily disable all transitions
+                item.style.transition = 'none';
+                leftContent.style.transition = 'none';
+                rightContent.style.transition = 'none';
+                separator.style.transition = 'none';
+                toggleButton.style.transition = 'none'; // Disable button transitions
+                
+                // 2. Force a browser reflow
+                void item.offsetWidth;
+                
+                // 3. Pre-position the button at its final location before animation starts
+                if (window.innerWidth > 768) {
+                    toggleButton.style.right = '15px'; // Final position
+                }
+                
+                // 4. Lock the left content width
+                const currentWidthPx = leftContent.offsetWidth;
+                leftContent.style.width = currentWidthPx + 'px';
+                
+                // 5. Force another reflow
+                void item.offsetWidth;
+                
+                // 6. Remove expanded class
                 item.classList.remove('expanded');
+                
+                // 7. Re-enable transitions except for button position
+                setTimeout(() => {
+                    item.style.transition = '';
+                    rightContent.style.transition = '';
+                    separator.style.transition = '';
+                    leftContent.style.transition = '';
+                    toggleButton.style.transition = 'background-color 0.3s ease, transform 0.3s ease'; // Only restore non-position transitions
+                    
+                    // 8. After animation completes, reset styles
+                    setTimeout(() => {
+                        leftContent.style.width = '';
+                    }, 300);
+                }, 10);
                 
                 iconSpan.innerHTML = '+';
                 textSpan.textContent = 'Show details';
-                
-                // Reset any inline styles after collapse animation completes
-                setTimeout(() => {
-                    leftContent.style.width = '';
-                    leftContent.style.transition = '';
-                }, 300);
             }
         });
         
@@ -131,6 +172,17 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!this.classList.contains('expanded')) {
                 this.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--border-color');
             }
+        });
+    });
+    
+    // Listen for window resize to adjust the layout if needed
+    window.addEventListener('resize', function() {
+        researchItems.forEach(item => {
+            const leftContent = item.querySelector('.research-item-left');
+            
+            // Reset any fixed width when window size changes
+            leftContent.style.width = '';
+            leftContent.style.transition = '';
         });
     });
     
