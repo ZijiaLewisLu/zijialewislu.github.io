@@ -59,7 +59,10 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleButton.appendChild(iconSpan);
         toggleButton.appendChild(textSpan);
         
-        item.appendChild(toggleButton);
+        // Find the publication links div and append the toggle button to it
+        const publicationLinksDiv = item.querySelector('.publication-links').parentElement;
+        publicationLinksDiv.classList.add('publication-info-container');
+        publicationLinksDiv.appendChild(toggleButton);
         
         // Get references to needed elements
         const leftContent = item.querySelector('.research-item-left');
@@ -91,7 +94,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     leftContent.style.width = currentWidthPx + 'px';
                     // Pre-position the toggle button where it will end up
                     if (window.innerWidth > 768) {
-                        toggleButton.style.right = 'calc(40% + 15px)';
+                        // toggleButton.style.right = 'calc(40% + 15px)';
+                        toggleButton.style.right = '0px';
                     }
                 }
                 
@@ -131,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // 3. Pre-position the button at its final location before animation starts
                 if (window.innerWidth > 768) {
-                    toggleButton.style.right = '15px'; // Final position
+                    toggleButton.style.right = '0px'; // Final position
                 }
                 
                 // 4. Lock the left content width
