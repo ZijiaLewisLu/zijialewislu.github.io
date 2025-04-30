@@ -59,15 +59,13 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleButton.appendChild(iconSpan);
         toggleButton.appendChild(textSpan);
         
-        // Find the publication links div and append the toggle button to it
-        const publicationLinksDiv = item.querySelector('.publication-links').parentElement;
-        publicationLinksDiv.classList.add('publication-info-container');
+        // Find the publication links div directly and append the toggle button to it
+        const publicationLinksDiv = item.querySelector('.publication-links');
         publicationLinksDiv.appendChild(toggleButton);
         
         // Get references to needed elements
         const leftContent = item.querySelector('.research-item-left');
         const rightContent = item.querySelector('.research-item-right');
-        const separator = item.querySelector('.research-item-separator');
         
         // Add click event to toggle button with improved animation handling
         toggleButton.addEventListener('click', function(e) {
@@ -83,7 +81,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 item.style.transition = 'none';
                 leftContent.style.transition = 'none';
                 rightContent.style.transition = 'none';
-                separator.style.transition = 'none';
                 toggleButton.style.transition = 'none'; // Disable button transitions
                 
                 // 2. Force a browser reflow
@@ -94,7 +91,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     leftContent.style.width = currentWidthPx + 'px';
                     // Pre-position the toggle button where it will end up
                     if (window.innerWidth > 768) {
-                        // toggleButton.style.right = 'calc(40% + 15px)';
                         toggleButton.style.right = '0px';
                     }
                 }
@@ -109,7 +105,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 setTimeout(() => {
                     item.style.transition = '';
                     rightContent.style.transition = '';
-                    separator.style.transition = '';
                     leftContent.style.transition = '';
                     toggleButton.style.transition = 'background-color 0.3s ease, transform 0.3s ease'; // Only restore non-position transitions
                     
@@ -127,7 +122,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 item.style.transition = 'none';
                 leftContent.style.transition = 'none';
                 rightContent.style.transition = 'none';
-                separator.style.transition = 'none';
                 toggleButton.style.transition = 'none'; // Disable button transitions
                 
                 // 2. Force a browser reflow
@@ -152,7 +146,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 setTimeout(() => {
                     item.style.transition = '';
                     rightContent.style.transition = '';
-                    separator.style.transition = '';
                     leftContent.style.transition = '';
                     toggleButton.style.transition = 'background-color 0.3s ease, transform 0.3s ease'; // Only restore non-position transitions
                     
