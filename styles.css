@@ -74,16 +74,11 @@ a:hover {
     height: 160px;
     object-fit: cover;
     border-radius: 50%;
-    /* border-radius: 20%; */
     box-shadow: var(--box-shadow);
     margin-bottom: 1.2rem;
     border: 3px solid white; /* White border for the profile image */
     transition: transform 0.3s ease;
 }
-
-/* .profile-image:hover {
-    transform: scale(1.05) !important; 
-} */
 
 .profile-name {
     font-size: 2rem; /* Larger name */
@@ -110,7 +105,7 @@ a:hover {
 }
 
 .contact-info:hover {
-    transform: translateY(-5px) !important; /* Added !important */
+    transform: translateY(-5px) !important;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
@@ -132,7 +127,7 @@ a:hover {
 }
 
 .contact-item:hover {
-    transform: translateX(5px) !important; /* Added !important */
+    transform: translateX(5px) !important;
     color: var(--primary-color);
 }
 
@@ -158,7 +153,7 @@ a:hover {
 
 .social-links a:hover {
     color: var(--accent-color);
-    transform: translateY(-3px) !important; /* Added !important */
+    transform: translateY(-3px) !important;
 }
 
 .sidebar-nav {
@@ -173,7 +168,7 @@ a:hover {
 }
 
 .sidebar-nav:hover {
-    transform: translateY(-5px) !important; /* Added !important */
+    transform: translateY(-5px) !important;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
@@ -188,7 +183,7 @@ a:hover {
 }
 
 .sidebar-nav li:hover {
-    transform: translateX(5px) !important; /* Added !important */
+    transform: translateX(5px) !important;
 }
 
 /* Sidebar navigation */
@@ -274,7 +269,7 @@ a:hover {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: var(--box-shadow);
-    transition: var(--transition), width 0.3s ease;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease, width 0.3s ease; /* Specific transitions */
     border: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
@@ -294,6 +289,7 @@ a:hover {
     display: flex;
     position: relative;
     overflow: hidden; /* Contain the expanding content */
+    width: 100%; /* Ensure full width of parent */
 }
 
 .research-item-separator {
@@ -302,10 +298,11 @@ a:hover {
     position: absolute;
     top: 10px;
     bottom: 10px;
-    left: 60%;
-    opacity: 0; /* Hide by default */
-    visibility: hidden; /* Completely hide when not expanded */
+    left: calc(60% - 1px); /* Center the separator at the division point */
+    opacity: 0;
+    visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 5; /* Ensure separator appears above content */
 }
 
 .research-item.expanded .research-item-separator {
@@ -314,15 +311,23 @@ a:hover {
 }
 
 .research-item-left {
-    width: 100%; /* Take full width when not expanded */
+    width: 100%; /* This is 100% of the parent container (which starts at 60%) */
     padding: 1.5rem;
-    transition: width 0.3s ease;
     position: relative;
     z-index: 1;
+    flex-shrink: 0; /* Prevent shrinking */
+    transition: none; /* Remove transition from this element to prevent the animation issue */
 }
 
 .research-item.expanded .research-item-left {
-    width: 60%; /* Reduce width when expanded to make room */
+    width: 60%; /* When expanded, take 60% of the expanded container */
+    transition: none; /* No transition to prevent the expand-then-shrink effect */
+}
+
+/* Add a wrapper div to maintain fixed width during animation */
+.research-item-content-wrapper {
+    width: 100%;
+    transition: none; /* No transition on the wrapper */
 }
 
 .research-item-right {
@@ -376,8 +381,6 @@ a:hover {
     font-size: 1.1rem;
 }
 
-/* Removed the ::after for the + indicator since we'll add it with JS */
-
 .research-item-image {
     width: 75%;
     margin: 0 auto 1rem auto;
@@ -421,11 +424,6 @@ a:hover {
     color: var(--highlight-color); /* Amber color for venues */
 }
 
-.research-item-right {
-    width: 40%;
-    padding: 1.5rem;
-}
-
 .publication-description {
     font-size: 1rem;
     text-align: justify;
@@ -447,21 +445,13 @@ a:hover {
 }
 
 .publication-description li.regular::before {
-    /* content: "•";  */
     content: "●";  /* Black circle (larger than standard bullet) */
-    /* font-size: 0.5em; */
-    /* font-size: em; */
-    /* left: 0.2em; */
     color: var(--primary-color);
 }
 
 .publication-description li.star::before {
-    /* content: "◆";  */
     content: "▶"; 
-    /* font-size: 1.2em; */
-    /* top: 0.4em;  */
     color: var(--primary-color);
-    /* color: #3a6ea5; */
 }
 
 .publication-description li span {
@@ -469,7 +459,6 @@ a:hover {
     border-radius: 8px;
     background-color: rgba(25, 118, 210, 0.1);
     color: var(--primary-color);
-    /* font-size: 0.9rem; */
     font-weight: bold;
     transition: var(--transition);
 }
@@ -495,14 +484,10 @@ a:hover {
 }
 
 .publication-links a {
-    /* padding: 8px 16px; */
     padding: 4px 16px;
     border-radius: 8px;
     color: white;
     background-color: var(--primary-color);
-    /* color: var(--primary-color);
-    border-color: var(--border-color); */
-    /* background-color: var(--primary-color); */
     font-size: 0.9rem;
     font-weight: 500;
     transition: var(--transition);
@@ -533,7 +518,7 @@ a:hover {
 
 .publication-tag:hover {
     background-color: rgba(25, 118, 210, 0.2);
-    transform: translateY(-2px) !important; /* Added !important */
+    transform: translateY(-2px) !important;
 }
 
 .updates-list {
@@ -551,7 +536,6 @@ a:hover {
 }
 
 .update-item:hover {
-    /* transform: translateX(5px) !important;  */
     border-bottom-color: var(--primary-color);
 }
 
@@ -593,7 +577,6 @@ a:hover {
 }
 
 .experience-item:hover {
-    /* transform: translateY(-5px) !important;  */
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
     border-color: var(--border-color);
 }
@@ -682,7 +665,7 @@ footer {
 
 .back-to-top:hover {
     background-color: var(--secondary-color);
-    transform: translateY(-5px) !important; /* Added !important */
+    transform: translateY(-5px) !important;
 }
 
 /* Media queries with improved mobile experience */
@@ -788,17 +771,6 @@ footer {
     .research-item-toggle {
         bottom: 15px;
         right: 15px;
-        /* No need to change position as it's already at the bottom */
-    }
-    
-    .research-item-toggle {
-        top: auto;
-        bottom: 15px;
-    }
-    
-    .research-item::after {
-        top: auto;
-        bottom: 15px;
     }
     
     .experience-item {
@@ -860,7 +832,7 @@ footer {
     }
 }
 
-/* Animation classes - add these at the end of the file */
+/* Animation classes */
 .pre-animate {
     opacity: 0;
     transform: translateY(20px);
