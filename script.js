@@ -39,15 +39,54 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Add hover effects to research items
+    // Add toggle functionality to research items
     const researchItems = document.querySelectorAll('.research-item');
     researchItems.forEach(item => {
+        // Create toggle button for each research item
+        const toggleButton = document.createElement('div');
+        toggleButton.className = 'research-item-toggle';
+        
+        // Create span for icon
+        const iconSpan = document.createElement('span');
+        iconSpan.className = 'research-item-toggle-icon';
+        iconSpan.innerHTML = '+';
+        
+        // Create text span
+        const textSpan = document.createElement('span');
+        textSpan.textContent = 'Show details';
+        
+        // Append elements to button
+        toggleButton.appendChild(iconSpan);
+        toggleButton.appendChild(textSpan);
+        
+        item.appendChild(toggleButton);
+        
+        // Add click event to toggle button
+        toggleButton.addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent bubbling up to potential parent handlers
+            
+            // Toggle expanded class on the research item
+            item.classList.toggle('expanded');
+            
+            // Update the toggle button text based on expanded state
+            if (item.classList.contains('expanded')) {
+                iconSpan.innerHTML = '−'; // Em dash for minus
+                textSpan.textContent = 'Hide details';
+            } else {
+                iconSpan.innerHTML = '+';
+                textSpan.textContent = 'Show details';
+            }
+        });
+        
+        // Border color change on hover (not on expand/collapse)
         item.addEventListener('mouseenter', function() {
             this.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color');
         });
         
         item.addEventListener('mouseleave', function() {
-            this.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--border-color');
+            if (!this.classList.contains('expanded')) {
+                this.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--border-color');
+            }
         });
     });
     
