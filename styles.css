@@ -274,7 +274,7 @@ a:hover {
     border: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 70%;
     margin-left: 0;
     position: relative;
 }
@@ -292,13 +292,14 @@ a:hover {
     width: 100%;
 }
 
-.research-item-separator {
+/* Remove separator styles */
+/* .research-item-separator {
     width: 2px;
     background-color: var(--border-color);
     position: absolute;
     top: 10px;
     bottom: 10px;
-    left: calc(60% - 1px);
+    left: calc(70% - 1px);
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -308,12 +309,12 @@ a:hover {
 .research-item.expanded .research-item-separator {
     opacity: 1;
     visibility: hidden;
-    /* visibility: visible; */
-}
+} */
 
 .research-item-left {
     width: 100%;
     padding: 1.5rem;
+    padding-right: 0.75rem; /* Reduce right padding to minimize whitespace */
     position: relative;
     z-index: 1;
     flex-shrink: 0;
@@ -321,13 +322,15 @@ a:hover {
 }
 
 .research-item.expanded .research-item-left {
-    width: 60%;
+    width: 70%; /* Changed from 60% to 70% */
+    padding-right: 0.75rem; /* Consistent reduced padding when expanded */
     transition: none;
 }
 
 .research-item-right {
-    width: 40%;
+    width: 30%; /* Changed from 40% to 30% */
     padding: 1.5rem;
+    padding-left: 0.75rem; /* Reduce left padding to minimize whitespace */
     opacity: 0;
     visibility: hidden;
     position: absolute;
@@ -435,6 +438,37 @@ a:hover {
     flex-wrap: wrap;
     gap: 12px;
     align-items: center;
+    justify-content: flex-start; /* Change from space-between to flex-start to align to left */
+    width: 100%; 
+    margin-top: 0.5rem;
+    position: relative;
+}
+
+/* Group the venue and actual links together */
+.publication-links p.publication-venue {
+    margin-right: 1rem; /* Add specific margin instead of auto */
+}
+
+/* Keep toggle button at right */
+.research-item-toggle {
+    margin-left: auto; /* This pushes the toggle button to the right */
+    right: 0; /* Reset right value */
+    bottom: 0; /* Reset bottom value */
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0.9;
+    padding: 4px 8px;
+    border-radius: 20px;
+    background-color: rgba(25, 118, 210, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    z-index: 10; /* Increase z-index to ensure it's above content */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Remove right transition */
+    white-space: nowrap; /* Prevent wrapping */
 }
 
 .publication-links a {
@@ -493,14 +527,14 @@ a:hover {
 }
 
 /* Publication info container (for venue, links, and toggle) */
-.publication-info-container {
+/* .publication-info-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     margin-top: 0.5rem;
     position: relative;
-}
+} */
 
 /* .research-item-bottom {
     padding: 1rem 1.5rem;
@@ -711,22 +745,24 @@ footer {
         flex-direction: row;
     }
     
-    .research-item-separator {
+    /* Remove separator styles in media query */
+    /* .research-item-separator {
         width: 2px;
         height: auto;
         top: 10px;
         bottom: 10px;
-        left: calc(60% - 1px);
+        left: calc(70% - 1px);
         position: absolute;
-    }
+    } */
     
     .research-item-right {
         position: absolute;
         right: 0;
         top: 0;
         height: 100%;
-        width: 40%;
+        width: 30%; /* Changed from 40% to 30% */
         transform: translateX(100%);
+        padding-left: 0.75rem; /* Consistent reduced padding on desktop */
     }
     
     .research-item.expanded .research-item-right {
@@ -836,7 +872,8 @@ footer {
         overflow: visible;
     }
     
-    .research-item-separator {
+    /* Remove separator styles in media query */
+    /* .research-item-separator {
         display: block;
         width: 100%;
         height: 2px;
@@ -845,15 +882,17 @@ footer {
         bottom: auto;
         position: relative;
         margin: 0.5rem 0;
-    }
+    } */
     
     .research-item-left {
         width: 100%;
         flex-shrink: 1;
+        padding-bottom: 0.75rem; /* Reduce bottom padding on mobile */
     }
     
     .research-item.expanded .research-item-left {
         width: 100%;
+        padding-bottom: 0.5rem; /* Further reduce padding when expanded on mobile */
     }
     
     .research-item-right {
@@ -864,6 +903,7 @@ footer {
         max-height: 0;
         overflow: hidden;
         padding: 0 1.5rem;
+        padding-top: 0; /* Remove top padding on mobile */
         transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, max-height 0.5s ease, padding 0.3s ease;
         /* padding-bottom: 60px;  */
         /* Extra padding on mobile */
@@ -872,7 +912,8 @@ footer {
     .research-item.expanded .research-item-right {
         transform: translateY(0);
         max-height: 1000px;
-        padding: 1.5rem;
+        padding: 1rem 1.5rem; /* Reduced padding when expanded on mobile */
+        padding-top: 0; /* Remove top padding on mobile */
     }
     
     .research-item.expanded .research-item-toggle {
@@ -917,6 +958,20 @@ footer {
     .publication-links {
         flex: 1;
         min-width: 0;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: flex-start; /* Ensure left alignment on mobile */
+    }
+
+    /* Adjust publication links for mobile */
+    .publication-links {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .publication-links a, 
+    .publication-links p.publication-venue {
+        margin-bottom: 5px; /* Add spacing between wrapped items */
     }
 }
 
