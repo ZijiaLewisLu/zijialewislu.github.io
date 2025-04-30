@@ -660,11 +660,18 @@ a:hover {
 
 .experience-duration {
     font-size: 0.9rem;
-    color: var(--highlight-color);
+    color: var(--highlight-color) !important; /* Add !important to override browser styling */
     font-weight: 500;
     background-color: rgba(255, 179, 0, 0.1);
     padding: 4px 10px;
     border-radius: 20px;
+    /* Prevent Safari from auto-formatting dates as links */
+    -webkit-text-fill-color: var(--highlight-color); /* Force color in WebKit browsers */
+    text-decoration: none !important; /* Ensure no underline */
+    pointer-events: none; /* Prevent clicking behavior */
+    /* Alternatively, you can use:
+    user-select: all; 
+    which makes the text selectable but prevents automatic formatting */
 }
 
 .experience-description {
