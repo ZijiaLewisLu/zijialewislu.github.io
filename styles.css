@@ -274,22 +274,24 @@ a:hover {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: var(--box-shadow);
-    transition: var(--transition);
+    transition: var(--transition), width 0.3s ease;
     border: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
+    width: 60%; /* Start at 60% width */
+    margin-left: 0; /* Align to left */
+    position: relative; /* Ensure proper positioning context */
 }
 
-/* Fix for the hover transform effect */
-.research-item:hover {
-    /* transform: translateY(-8px) !important;  */
+/* Replacing hover effects with .expanded class */
+.research-item.expanded {
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
     border-color: var(--primary-color);
+    width: 100%; /* Expand to full width */
 }
 
 .research-item-top {
     display: flex;
-    flex-direction: row;
     position: relative;
     overflow: hidden; /* Contain the expanding content */
 }
@@ -302,57 +304,79 @@ a:hover {
     bottom: 10px;
     left: 60%;
     opacity: 0; /* Hide by default */
-    visibility: hidden; /* Completely hide when not hovered */
+    visibility: hidden; /* Completely hide when not expanded */
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.research-item:hover .research-item-separator {
+.research-item.expanded .research-item-separator {
     opacity: 1;
     visibility: visible;
 }
 
 .research-item-left {
-    width: 60%; /* Keep at fixed width */
+    width: 100%; /* Take full width when not expanded */
     padding: 1.5rem;
-    transition: var(--transition);
+    transition: width 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.research-item.expanded .research-item-left {
+    width: 60%; /* Reduce width when expanded to make room */
 }
 
 .research-item-right {
-    width: 40%; /* Fixed width for the right section */
+    width: 40%;
     padding: 1.5rem;
     opacity: 0;
-    visibility: hidden; /* Completely hide when not hovered */
+    visibility: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
     transition: opacity 0.3s ease, visibility 0.3s ease;
-    position: relative;
+    background-color: white; /* Ensure it has background */
+    transform: translateX(100%); /* Start off-screen */
 }
 
-.research-item:hover .research-item-right {
+.research-item.expanded .research-item-right {
     opacity: 1;
     visibility: visible;
+    transform: translateX(0); /* Slide in from right */
 }
 
-/* Add hover indicator to show there's expandable content */
-.research-item::after {
-    content: "+";
+/* Update indicator to be at bottom right with text */
+.research-item-toggle {
     position: absolute;
     right: 15px;
-    top: 15px;
+    bottom: 15px;
     color: var(--primary-color);
-    font-size: 1.2rem;
-    opacity: 0.7;
-    transition: opacity 0.3s ease;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0.9;
+    padding: 6px 12px;
+    border-radius: 20px;
     background-color: rgba(25, 118, 210, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 5px;
+    z-index: 2;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.research-item:hover::after {
-    opacity: 0;
+.research-item-toggle:hover {
+    background-color: rgba(25, 118, 210, 0.2);
+    transform: scale(1.05);
 }
+
+.research-item-toggle-icon {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Removed the ::after for the + indicator since we'll add it with JS */
 
 .research-item-image {
     width: 75%;
@@ -361,7 +385,7 @@ a:hover {
     transition: var(--transition);
 }
 
-.research-item:hover .research-item-image {
+.research-item.expanded .research-item-image {
     transform: scale(1.1); 
 }
 
@@ -747,15 +771,29 @@ footer {
     }
     
     .research-item-right {
+        position: relative;
+        transform: translateY(-20px);
         height: 0;
         padding: 0 1.5rem;
         overflow: hidden;
-        transition: height 0.3s ease, padding 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+        transition: height 0.3s ease, padding 0.3s ease, opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
     }
     
-    .research-item:hover .research-item-right {
+    .research-item.expanded .research-item-right {
         height: auto;
         padding: 1.5rem;
+        transform: translateY(0);
+    }
+    
+    .research-item-toggle {
+        bottom: 15px;
+        right: 15px;
+        /* No need to change position as it's already at the bottom */
+    }
+    
+    .research-item-toggle {
+        top: auto;
+        bottom: 15px;
     }
     
     .research-item::after {
