@@ -291,20 +291,67 @@ a:hover {
     display: flex;
     flex-direction: row;
     position: relative;
+    overflow: hidden; /* Contain the expanding content */
 }
 
 .research-item-separator {
-    width: 2px; /* Slightly thicker separator */
+    width: 2px;
     background-color: var(--border-color);
     position: absolute;
     top: 10px;
     bottom: 10px;
     left: 60%;
+    opacity: 0; /* Hide by default */
+    visibility: hidden; /* Completely hide when not hovered */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.research-item:hover .research-item-separator {
+    opacity: 1;
+    visibility: visible;
 }
 
 .research-item-left {
-    width: 60%;
-    padding: 1.5rem; /* More padding */
+    width: 60%; /* Keep at fixed width */
+    padding: 1.5rem;
+    transition: var(--transition);
+}
+
+.research-item-right {
+    width: 40%; /* Fixed width for the right section */
+    padding: 1.5rem;
+    opacity: 0;
+    visibility: hidden; /* Completely hide when not hovered */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    position: relative;
+}
+
+.research-item:hover .research-item-right {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Add hover indicator to show there's expandable content */
+.research-item::after {
+    content: "+";
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: rgba(25, 118, 210, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.research-item:hover::after {
+    opacity: 0;
 }
 
 .research-item-image {
@@ -697,6 +744,23 @@ footer {
     .research-item-left, 
     .research-item-right {
         width: 100%;
+    }
+    
+    .research-item-right {
+        height: 0;
+        padding: 0 1.5rem;
+        overflow: hidden;
+        transition: height 0.3s ease, padding 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    }
+    
+    .research-item:hover .research-item-right {
+        height: auto;
+        padding: 1.5rem;
+    }
+    
+    .research-item::after {
+        top: auto;
+        bottom: 15px;
     }
     
     .experience-item {
