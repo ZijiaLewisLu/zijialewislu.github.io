@@ -75,15 +75,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Add subtle entrance animations
+    // Add subtle entrance animations - MODIFIED to use classes instead of inline styles
     const animateElements = document.querySelectorAll('.research-item, .experience-item, .update-item');
+    
+    // Add the pre-animation class to all elements
+    animateElements.forEach(element => {
+        element.classList.add('pre-animate');
+    });
     
     // Create an intersection observer
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                // Remove the pre-animation class when element is visible
+                entry.target.classList.remove('pre-animate');
+                entry.target.classList.add('animated');
                 observer.unobserve(entry.target);
             }
         });
@@ -93,9 +99,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Observe each element
     animateElements.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(20px)';
-        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(element);
     });
 });

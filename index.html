@@ -112,7 +112,16 @@
                                 </div>
                                 <h3 class="publication-title">DeCafNet: Delegate and Conquer for Efficient Temporal Grounding in Long Videos</h3>
                                 <p class="publication-authors"><strong>Zijia Lu</strong>, A S M Iftekhar, Gaurav Mittal, Tianjian Meng, Xiawei Wang, Cheng Zhao, Rohith Kukkala, Ehsan Elhamifar, Mei Chen</p>
-                                <p class="publication-venue">CVPR 2025</p>
+                                
+                                <!-- Modified to display venue and links on the same line -->
+                                <div style="display: flex; align-items: center; gap: 15px;">
+                                    <p class="publication-venue" style="margin: 0;">CVPR 2025</p>
+                                    <div class="publication-links" style="margin: 0;">
+                                        <a href="https://cvpr.thecvf.com/virtual/2025/poster/32761">Paper</a>
+                                        <a>Code (TBA)</a>
+                                    </div>
+                                </div>
+                                
                             </div>
                             <div class="research-item-separator"></div> <!-- Added separator -->
                             <div class="research-item-right">
@@ -121,23 +130,10 @@
                                     <li class="regular">A Delegate-and-Conquer framework for efficient coarse-to-fine <span>Long Video Temporal Grounding</span>. </li>
                                     <li class="regular"><span>Efficient Video Encoder</span> for end-to-end training on Ego4D with one A100. </li>
                                     <li class="regular">SOTA accuracy with 47%-66% lower computation.</li>
-                                    <li class="star">APPLICATION: Improve <span>VLLMs</span> to efficiently handle hour-long videos.</li>
-                                    <!-- <li style="list-style-type: none; position: relative; padding-left: -5px;"> <span class="publication-t2">Application</span>: Improve VLLM's memory load and processing speed for long videos.</li> -->
+                                    <li class="star">APPLICATION: improve <span>VLLMs</span> to efficiently handle hour-long videos.</li>
                                 </ul>
-                                <!-- <span class="publication-tag">Grounding</span> Test -->
-                                <!-- <p class="publication-description"><org>APPLICATION</org>: Improve VLLM's memory load and processing speed for long videos.</p> -->
                             </div>
                         </div>
-                        <!-- <div class="research-item-bottom">
-                            <div class="publication-links">
-                                <a href="https://cvpr.thecvf.com/virtual/2025/poster/32761">Paper</a>
-                                <a>Code (TBA)</a>
-                            </div>
-                            <div class="publication-tags">
-                                <span class="publication-tag">Temporal Video Grounding</span>
-                                <span class="publication-tag">Efficient Video Encoder</span>
-                            </div>
-                        </div> -->
                     </div>
 
                     <div class="research-item">
@@ -148,56 +144,28 @@
                                 </div>
                                 <h3 class="publication-title">FACT: Frame-Action Cross-Attention Temporal Modeling for Efficient Fully-Supervised Action Segmentation</h3>
                                 <p class="publication-authors"><strong>Zijia Lu</strong>, Ehsan Elhamifar</p>
-                                <p class="publication-venue">CVPR 2024</p>
-                            </div>
-                            <div class="research-item-separator"></div> <!-- Added separator -->
-                            <div class="research-item-right">
-                                <p class="publication-description">
-                                    Proposed an efficient framework of synchronized temporal modeling on multi-levels (frame/action). Achieved state-of-the-art results on 4 datasets with lower inference time and enabled Vision-Language Learning. <br>
-                                    APPLICATION: New efficient temporal network; Multi-Modal Learning; Reduce Data Requirement.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="research-item-bottom">
-                            <div class="publication-links">
-                                <a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Lu_FACT_Frame-Action_Cross-Attention_Temporal_Modeling_for_Efficient_Action_Segmentation_CVPR_2024_paper.pdf">Paper</a>
-                                <a href="https://github.com/ZijiaLewisLu/CVPR2024-FACT">Code</a>
-                            </div>
-                            <div class="publication-tags">
-                                <span class="publication-tag">Long Temporal Modeling</span>
-                                <span class="publication-tag">Multi-Modal Learning</span>
-                                <span class="publication-tag">Model Efficiency</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="research-item">
-                        <div class="research-item-top">
-                            <div class="research-item-left">
-                                <div class="research-item-image">
-                                    <img src="./images/pcl.png" alt="Self-Supervised Multi-Object Tracking">
+                                
+                                <!-- Updated layout to match first research item -->
+                                <div style="display: flex; align-items: center; gap: 15px;">
+                                    <p class="publication-venue" style="margin: 0;">CVPR 2024</p>
+                                    <div class="publication-links" style="margin: 0;">
+                                        <a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Lu_FACT_Frame-Action_Cross-Attention_Temporal_Modeling_for_Efficient_Action_Segmentation_CVPR_2024_paper.pdf">Paper</a>
+                                        <a href="https://github.com/ZijiaLewisLu/CVPR2024-FACT">Code</a>
+                                    </div>
                                 </div>
-                                <h3 class="publication-title">Self-Supervised Multi-Object Tracking with Path Consistency</h3>
-                                <p class="publication-authors"><strong>Zijia Lu</strong>, Bing Shuai, Yanbei Chen, Zhenlin Xu, Davide Modolo</p>
-                                <p class="publication-venue">CVPR 2024 Highlight</p>
                             </div>
-                            <div class="research-item-separator"></div> <!-- Added separator -->
+                            <div class="research-item-separator"></div>
                             <div class="research-item-right">
-                                <p class="publication-description">
-                                    Proposed a new tracking self-supervision objective with improved robustness to occlusion and appearance changes. Outperformed existing works on popular benchmarks. <br>
-                                    APPLICATION: Robust object tracking for social interaction or egocentric video understanding.
-
-                                </p>
-                            </div>
-                        </div>
-                        <div class="research-item-bottom">
-                            <div class="publication-links">
-                                <a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Lu_Self-Supervised_Multi-Object_Tracking_with_Path_Consistency_CVPR_2024_paper.pdf">Paper</a>
-                                <a href="https://github.com/amazon-science/path-consistency">Code</a>
-                            </div>
-                            <div class="publication-tags">
-                                <span class="publication-tag">Multi-Object Tracking</span>
-                                <span class="publication-tag">Self-Supervised Learning</span>
+                                <!-- Converted paragraph to bulleted list -->
+                                <ul class="publication-description">
+                                    <li class="regular">New <span>Long Temporal Reasoning</span> paradigm with parallel modeling of frame details and temporal events/actions.</li>
+                                    <li class="regular">Action Tokens Design for dynamic video condensing and enabling text-data input.</li>
+                                    <!-- <li class="regular">Better feature semantic with one-to-one/many token.</li> -->
+                                    <!-- <li class="regular">Efficient framework of synchronized temporal modeling on multi-levels (frame/action).</li> -->
+                                    <li class="regular">SOTA accuracy with 3x inference speed.</li>
+                                    <!-- <li class="regular">Enabled Vision-Language Learning for action understanding.</li> -->
+                                    <li class="star">APPLICATION: better <span>Assistant AI</span>; allow <span>Multi-Modality Learning</span>. </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -210,24 +178,51 @@
                                 </div>
                                 <h3 class="publication-title">Error Detection in Egocentric Procedural Task Videos</h3>
                                 <p class="publication-authors">Shih-Po Lee, <strong>Zijia Lu</strong>, Zekun Zhang, Minh Hoai, Ehsan Elhamifar</p>
-                                <p class="publication-venue">CVPR 2024</p>
+                                
+                                <div style="display: flex; align-items: center; gap: 15px;">
+                                    <p class="publication-venue" style="margin: 0;">CVPR 2024</p>
+                                    <div class="publication-links" style="margin: 0;">
+                                        <a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Lee_Error_Detection_in_Egocentric_Procedural_Task_Videos_CVPR_2024_paper.pdf">Paper</a>
+                                        <a href="https://github.com/robert80203/EgoPER_official">Code & Dataset</a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="research-item-separator"></div> <!-- Added separator -->
+                            <div class="research-item-separator"></div>
                             <div class="research-item-right">
-                                <p class="publication-description">
-                                    Proposed Spatio-Temporal & Contrastive Learning method for error detection in procedural videos. Collected Egocentric Procedural Error Detection dataset of extensive error types. <br>
-                                    APPLICATION: New dataset for procedural video understanding, error detection and Assistant AI.
-                                </p>
+                                <ul class="publication-description">
+                                    <li class="regular">A <span>One-class Error Detection</span> method in procedural videos.</li>
+                                    <!-- <li class="regular">Spatio-Temporal and Contrastive Learning method for error detection in procedural videos.</li> -->
+                                    <li class="regular">First Egocentric Procedural Error Detection (EgoPER) dataset with extensive error types.</li>
+                                    <li class="star">APPLICATION: error detection for <span>Egocentric Understanding</span> and <span>Assistant AI</span>.</li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="research-item-bottom">
-                            <div class="publication-links">
-                                <a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Lee_Error_Detection_in_Egocentric_Procedural_Task_Videos_CVPR_2024_paper.pdf">Paper</a>
-                                <a href="https://github.com/robert80203/EgoPER_official">Code & Dataset</a>
+                    </div>
+
+                    <div class="research-item">
+                        <div class="research-item-top">
+                            <div class="research-item-left">
+                                <div class="research-item-image">
+                                    <img src="./images/pcl.png" alt="Self-Supervised Multi-Object Tracking">
+                                </div>
+                                <h3 class="publication-title">Self-Supervised Multi-Object Tracking with Path Consistency</h3>
+                                <p class="publication-authors"><strong>Zijia Lu</strong>, Bing Shuai, Yanbei Chen, Zhenlin Xu, Davide Modolo</p>
+                                
+                                <div style="display: flex; align-items: center; gap: 15px;">
+                                    <p class="publication-venue" style="margin: 0;">CVPR 2024 Highlight</p>
+                                    <div class="publication-links" style="margin: 0;">
+                                        <a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Lu_Self-Supervised_Multi-Object_Tracking_with_Path_Consistency_CVPR_2024_paper.pdf">Paper</a>
+                                        <a href="https://github.com/amazon-science/path-consistency">Code</a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="publication-tags">
-                                <span class="publication-tag">Egocentric Understanding</span>
-                                <span class="publication-tag">Error Detection</span>
+                            <div class="research-item-separator"></div>
+                            <div class="research-item-right">
+                                <ul class="publication-description">
+                                    <li class="regular">Self-Supervised Consistency Loss for robust <span>Multi-Object Tracking</span> without manual labels.</li> 
+                                    <li class="regular">Superior or comparable to supervised methods on popular benchmarks.</li>
+                                    <li class="star">APPLICATION: Robust object tracking for <span>Egocentric Understanding</span> and <span>Scene Understanding</span>.</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -240,24 +235,24 @@
                                 </div>
                                 <h3 class="publication-title">Set-Supervised Action Learning in Procedural Task Videos via Pairwise Order Consistency</h3>
                                 <p class="publication-authors"><strong>Zijia Lu</strong>, Ehsan Elhamifar</p>
-                                <p class="publication-venue">CVPR 2022</p>
+                                
+                                <div style="display: flex; align-items: center; gap: 15px;">
+                                    <p class="publication-venue" style="margin: 0;">CVPR 2022</p>
+                                    <div class="publication-links" style="margin: 0;">
+                                        <a href="http://www.khoury.northeastern.edu/home/eelhami/publications/setSupSegmentation-CVPR22.pdf">Paper</a>
+                                        <a href="https://github.com/ZijiaLewisLu/CVPR22-POC">Code</a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="research-item-separator"></div> <!-- Added separator -->
+                            <div class="research-item-separator"></div>
                             <div class="research-item-right">
-                                <p class="publication-description">
-                                    Proposed enhanced Action Modeling via Multi-Dimension Subspaces to capture large intra-class variations in weakly supervised video-text learning scenarios. <br>
-                                    APPLICATION: learn shared video-text semantic space without human labels. Support better video generation and understanding.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="research-item-bottom">
-                            <div class="publication-links">
-                                <a href="http://www.khoury.northeastern.edu/home/eelhami/publications/setSupSegmentation-CVPR22.pdf">Paper</a>
-                                <a href="https://github.com/ZijiaLewisLu/CVPR22-POC">Code</a>
-                            </div>
-                            <div class="publication-tags">
-                                <span class="publication-tag">Video-Text Alignment</span>
-                                <span class="publication-tag">Differentiable Sequence Metric</span>
+                                <ul class="publication-description">
+                                    <li class="regular"><span>Video-Text Alignment</span> between video frames and unordered sets of actions in video parsed from video narrations.</li>
+                                    <li class="regular">New differentiable <span>Sequence Metric</span> for weakly-supervised video-text alignment.</li>
+                                    <!-- <li class="regular">Doubled the accuracies of state-of-the-art approaches for weakly supervised video-text learning.</li> -->
+                                    <!-- <li class="star">APPLICATION: New Action Modeling Approach. learn shared video-text semantic space without human label.</li> -->
+                                    <li class="star">APPLICATION: learn video-text semantic space for <span>VLLM</span>or <span>Video Generation</span>.</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -270,24 +265,27 @@
                                 </div>
                                 <h3 class="publication-title">Weakly-supervised Action Segmentation and Alignment via Transcript-Aware Union-of-subspaces Learning</h3>
                                 <p class="publication-authors"><strong>Zijia Lu</strong>, Ehsan Elhamifar</p>
-                                <p class="publication-venue">ICCV 2022</p>
+                                
+                                <div style="display: flex; align-items: center; gap: 15px;">
+                                    <p class="publication-venue" style="margin: 0;">ICCV 2022</p>
+                                    <div class="publication-links" style="margin: 0;">
+                                        <a href="http://www.khoury.northeastern.edu/home/eelhami/publications/TASL-ICCV21.pdf">Paper</a>
+                                        <a href="https://github.com/ZijiaLewisLu/ICCV21-TASL">Code</a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="research-item-separator"></div> <!-- Added separator -->
+                            <div class="research-item-separator"></div>
                             <div class="research-item-right">
-                                <p class="publication-description">
-                                    Proposed Self-Supervised method to Recover and Learn Action Temporal Dependencies; Doubled the accuracies of state-of-the-art approaches for weakly supervised video-text learning.<br>
-                                    APPLICATION: New Action Modeling Approach. learn shared video-text semantic space without human label.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="research-item-bottom">
-                            <div class="publication-links">
-                                <a href="http://www.khoury.northeastern.edu/home/eelhami/publications/TASL-ICCV21.pdf">Paper</a>
-                                <a href="https://github.com/ZijiaLewisLu/ICCV21-TASL">Code</a>
-                            </div>
-                            <div class="publication-tags">
-                                <span class="publication-tag">Video-Text Alignment</span>
-                                <span class="publication-tag">Weakly-supervised Learning</span>
+                                <ul class="publication-description">
+                                    <!-- <li class="regular">Action Modeling via Multi-Dimension Subspaces to capture large intra-class variations in weakly supervised video-text learning scenarios.</li> -->
+                                    <li class="regular">New Union-of-Subspace network for accurate <span>Action Modeling</span> and capturing complex action variations.</li>
+                                    <li class="regular"><span>Contrastive Learning</span> for weakly-supervised video-text alignment.</li>
+                                    <!-- <li class="regular">Union-of-Subspace Network for better Action Modeling via Multi-Dimension Subspaces to capture large intra-class variations in weakly supervised video-text learning scenarios.</li> -->
+                                    <li class="star">APPLICATION: <span>Video-Text Alignment</span>.</li>
+                                    <!-- <li class="regular">Proposed Self-Supervised method to Recover and Learn Action Temporal Dependencies.</li>
+                                    <li class="regular">Doubled the accuracies of state-of-the-art approaches for weakly supervised video-text learning.</li>
+                                    <li class="star">APPLICATION: New Action Modeling Approach. learn shared video-text semantic space without human label.</li> -->
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -300,20 +298,21 @@
                                 </div>
                                 <h3 class="publication-title">Dft-Net: Disentanglement of Face Deformation and Texture Synthesis for Expression Editing</h3>
                                 <p class="publication-authors">Jinghui Wang, Jie Zhang, <strong>Zijia Lu</strong>, Shiguang Shan</p>
-                                <p class="publication-venue">ICIP 2019</p>
+                                
+                                <div style="display: flex; align-items: center; gap: 15px;">
+                                    <p class="publication-venue" style="margin: 0;">ICIP 2019</p>
+                                    <div class="publication-links" style="margin: 0;">
+                                        <a href="https://ieeexplore.ieee.org/abstract/document/8803416">Paper</a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="research-item-separator"></div> <!-- Added separator -->
+                            <div class="research-item-separator"></div>
                             <div class="research-item-right">
-                                <!-- <p class="publication-description">Proposed a new Transductive Label Propagation method and the first Open-Set Facial Expression Recognition dataset.</p> -->
-                            </div>
-                        </div>
-                        <div class="research-item-bottom">
-                            <div class="publication-links">
-                                <a href="https://ieeexplore.ieee.org/abstract/document/8803416">Paper</a>
-                            </div>
-                            <div class="publication-tags">
-                                <span class="publication-tag">Image Generation</span>
-                                <span class="publication-tag">Facial Editing</span>
+                                <ul class="publication-description">
+                                    <li class="regular">Two-Branch <span>GAN</span> network for facial expression edition.</li>
+                                    <li class="regular">Warping branch for expression transform and Generative branch for refinement.</li>
+                                    <li class="'star'">APPLICATION: Controlled <span>Image Generation</span> and <span>Expression Editing</span>.</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -326,24 +325,22 @@
                                 </div>
                                 <h3 class="publication-title">Zero-Shot Facial Expression Recognition with Multi-Label Label Propagation</h3>
                                 <p class="publication-authors"><strong>Zijia Lu</strong>, Jiabei Zeng, Shiguang Shan, Xilin Chen</p>
-                                <p class="publication-venue">ACCV 2018 Oral</p>
+                                
+                                <div style="display: flex; align-items: center; gap: 15px;">
+                                    <p class="publication-venue" style="margin: 0;">ACCV 2018 Oral</p>
+                                    <div class="publication-links" style="margin: 0;">
+                                        <a href="https://link.springer.com/chapter/10.1007/978-3-030-20893-6_2">Paper</a>
+                                        <a href="https://github.com/ZijiaLewisLu/ACCV18-ZML2P">Code & Dataset</a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="research-item-separator"></div> <!-- Added separator -->
+                            <div class="research-item-separator"></div>
                             <div class="research-item-right">
-                                <p class="publication-description">
-                                    Proposed a new Transductive Label Propagation method and the first Open-Set Facial Expression Recognition dataset.<br>
-                                    APPLICATION: Open-World Facial Expression. First Complex Facial Expression Recognition Dataset.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="research-item-bottom">
-                            <div class="publication-links">
-                                <a href="https://link.springer.com/chapter/10.1007/978-3-030-20893-6_2">Paper</a>
-                                <a href="https://github.com/ZijiaLewisLu/ACCV18-ZML2P">Code & Dataset</a>
-                            </div>
-                            <div class="publication-tags">
-                                <span class="publication-tag">Affection Recognition</span>
-                                <span class="publication-tag">Zero-Shot Learning</span>
+                                <ul class="publication-description">
+                                    <li class="regular">Transductive Label Propagation method for <span>Zero-Shot</span> facial expression recognition.</li>
+                                    <li class="regular">The first Open-Set Facial Expression Recognition dataset.</li>
+                                    <li class="star">APPLICATION: <span>Open-World</span> human emotion understanding.</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
