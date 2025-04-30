@@ -65,13 +65,16 @@ a:hover {
 
 .profile {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 0.0rem;
 }
 
 .profile-image {
-    width: 160px;
-    height: 160px;
+    /* width: 160px;
+    height: 160px; */
+    width: 180px;
+    height: 180px;
     object-fit: cover;
+    object-position: center 30%; /* Move the focal point higher to show hair */
     border-radius: 50%;
     box-shadow: var(--box-shadow);
     margin-bottom: 1.2rem;
@@ -334,7 +337,8 @@ a:hover {
     transition: opacity 0.3s ease, visibility 0.3s ease;
     background-color: white;
     transform: translateX(100%);
-    padding-bottom: 50px; /* Add padding to prevent overlap with button */
+    padding-bottom: 50px; 
+    /* Add padding to prevent overlap with button */
 }
 
 .research-item.expanded .research-item-right {
@@ -345,9 +349,9 @@ a:hover {
 
 /* Update button positioning to avoid overlap with content */
 .research-item-toggle {
-    position: absolute;
-    right: 15px;
-    bottom: 15px;
+    position: relative; /* Change from absolute to relative */
+    right: 0; /* Reset right value */
+    bottom: 0; /* Reset bottom value */
     color: var(--primary-color);
     font-size: 0.9rem;
     font-weight: 500;
@@ -362,11 +366,13 @@ a:hover {
     z-index: 10; /* Increase z-index to ensure it's above content */
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease; /* Remove right transition */
+    margin-left: auto; /* Push to the right */
+    white-space: nowrap; /* Prevent wrapping */
 }
 
 /* Reposition button when expanded */
 .research-item.expanded .research-item-toggle {
-    right: calc(40% + 15px); /* Position at the left of the right section */
+    right: 0; /* Reset the repositioning */
 }
 
 .research-item-toggle:hover {
@@ -428,6 +434,7 @@ a:hover {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
+    align-items: center;
 }
 
 .publication-links a {
@@ -483,6 +490,16 @@ a:hover {
     color: var(--primary-color);
     font-weight: bold;
     transition: var(--transition);
+}
+
+/* Publication info container (for venue, links, and toggle) */
+.publication-info-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 0.5rem;
+    position: relative;
 }
 
 /* .research-item-bottom {
@@ -715,6 +732,10 @@ footer {
     .research-item.expanded .research-item-right {
         transform: translateX(0);
     }
+
+    .contact-item a {
+        display: inline; /* Ensure text is visible on larger screens */
+    }
 }
 
 @media (max-width: 992px) {
@@ -764,24 +785,41 @@ footer {
     }
     
     .profile-image {
-        width: 100px;
-        height: 100px;
+        width: 160px;
+        height: 160px;
+        object-position: center 30%; /* Maintain consistent focal point on mobile */
         margin-right: 1rem;
         margin-bottom: 0;
     }
     
     .contact-info {
         display: flex;
+        justify-content: center;
         flex-wrap: wrap;
-        gap: 1rem;
+        gap: 1.5rem;
+        padding: 1.5rem 1rem;
     }
     
     .contact-info h3 {
         width: 100%;
+        text-align: center;
     }
     
     .contact-item {
-        width: calc(50% - 0.5rem);
+        width: auto;
+        margin: 0;
+        justify-content: center;
+        padding: 0.4rem;
+    }
+    
+    .contact-item a {
+        display: none; /* Hide the text on mobile */
+    }
+    
+    .contact-icon {
+        width: 32px; /* Make icons slightly larger for better tap targets */
+        height: 32px;
+        margin-right: 0; /* Remove right margin since there's no text */
     }
     
     .section-title {
@@ -827,7 +865,8 @@ footer {
         overflow: hidden;
         padding: 0 1.5rem;
         transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, max-height 0.5s ease, padding 0.3s ease;
-        padding-bottom: 60px; /* Extra padding on mobile */
+        /* padding-bottom: 60px;  */
+        /* Extra padding on mobile */
     }
     
     .research-item.expanded .research-item-right {
@@ -837,15 +876,17 @@ footer {
     }
     
     .research-item.expanded .research-item-toggle {
-        right: 15px; /* Keep at right edge on mobile */
-        bottom: 15px;
+        right: 0; /* Reset right value */
+        bottom: 0; /* Reset bottom value */
+        margin-left: 10px; /* Add some spacing */
     }
     
     /* Ensure button position is consistent on mobile */
     .research-item-toggle,
     .research-item.expanded .research-item-toggle {
-        right: 15px; /* Keep at right edge on mobile */
-        bottom: 15px;
+        right: 0; /* Reset right value */
+        bottom: 0; /* Reset bottom value */
+        margin-left: 10px; /* Add some spacing */
     }
     
     /* Experience items mobile layout */
@@ -864,6 +905,18 @@ footer {
     
     .experience-duration {
         margin-top: 0.5rem;
+    }
+
+    /* Make publication info container responsive */
+    .publication-info-container {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    /* Ensure publications links don't overflow */
+    .publication-links {
+        flex: 1;
+        min-width: 0;
     }
 }
 
@@ -889,5 +942,24 @@ footer {
     
     .publication-tags {
         margin-top: 1rem;
+    }
+    
+    /* Override for phone screens to keep contact icons side by side */
+    .contact-info {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+    
+    .contact-item {
+        width: auto; /* Override the 100% width to allow side-by-side layout */
+        margin-bottom: 0;
+    }
+
+    /* Adjust for very small screens if needed */
+    .publication-info-container {
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
     }
 }
