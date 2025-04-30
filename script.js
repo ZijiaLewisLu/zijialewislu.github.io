@@ -61,24 +61,68 @@ document.addEventListener('DOMContentLoaded', function() {
         
         item.appendChild(toggleButton);
         
-        // Add click event to toggle button
+        // Get references to needed elements
+        const leftContent = item.querySelector('.research-item-left');
+        const rightContent = item.querySelector('.research-item-right');
+        const separator = item.querySelector('.research-item-separator');
+        
+        // Add click event to toggle button with improved animation handling
         toggleButton.addEventListener('click', function(e) {
-            e.stopPropagation(); // Prevent bubbling up to potential parent handlers
+            e.stopPropagation(); // Prevent bubbling
             
-            // Toggle expanded class on the research item
-            item.classList.toggle('expanded');
-            
-            // Update the toggle button text based on expanded state
-            if (item.classList.contains('expanded')) {
+            // Toggle expanded class
+            if (!item.classList.contains('expanded')) {
+                // Expanding
+                
+                // 1. Temporarily disable transitions
+                item.style.transition = 'none';
+                leftContent.style.transition = 'none';
+                rightContent.style.transition = 'none';
+                separator.style.transition = 'none';
+                
+                // 2. Force a browser reflow to ensure the transition removal takes effect
+                void item.offsetWidth;
+                
+                // 3. Set the fixed width for left content before expanding
+                leftContent.style.width = leftContent.offsetWidth + 'px';
+                
+                // 4. Force another reflow
+                void item.offsetWidth;
+                
+                // 5. Add the expanded class
+                item.classList.add('expanded');
+                
+                // 6. Re-enable transitions but AFTER expanding
+                setTimeout(() => {
+                    item.style.transition = '';
+                    leftContent.style.transition = '';
+                    rightContent.style.transition = '';
+                    separator.style.transition = '';
+                    
+                    // 7. Release the fixed width AFTER the animation completes
+                    setTimeout(() => {
+                        leftContent.style.width = '';
+                    }, 300);
+                }, 10);
+                
                 iconSpan.innerHTML = '−'; // Em dash for minus
                 textSpan.textContent = 'Hide details';
             } else {
+                // Collapsing is simpler - just remove the class
+                item.classList.remove('expanded');
+                
                 iconSpan.innerHTML = '+';
                 textSpan.textContent = 'Show details';
+                
+                // Reset any inline styles after collapse animation completes
+                setTimeout(() => {
+                    leftContent.style.width = '';
+                    leftContent.style.transition = '';
+                }, 300);
             }
         });
         
-        // Border color change on hover (not on expand/collapse)
+        // Border color change on hover
         item.addEventListener('mouseenter', function() {
             this.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color');
         });
