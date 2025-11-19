@@ -220,12 +220,12 @@ a:hover {
     font-size: 1.1rem;
 }
 
-.about-content p:last-child {
+/* .about-content p:last-child {
     background-color: rgba(38, 166, 154, 0.1);
     padding: 1rem;
     border-left: 4px solid var(--accent-color);
     border-radius: 0 8px 8px 0;
-}
+} */
 
 .about-content org, .research-item-right org {
     color: var(--primary-color);
